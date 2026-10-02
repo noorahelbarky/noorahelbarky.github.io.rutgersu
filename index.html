@@ -3,676 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Rivera | Software Engineer & Designer Portfolio</title>
-    <!-- Tailwind CSS -->
+    <title>Noorah Elbarky | Rutgers Business School Marketing Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#2563eb',
-                            600: '#1d4ed8',
-                            700: '#1e40af',
-                            800: '#1e3a8a',
+                        cream: {
+                            50: '#FFFEFA',
+                            100: '#FAF7F2',
+                            200: '#F5EFE6',
+                            300: '#EADECF'
+                        },
+                        scarlet: {
+                            50: '#FDF2F2',
+                            100: '#FBE5E5',
+                            500: '#D32F2F',
+                            600: '#CC0000',
+                            700: '#990000',
+                            800: '#7A0000',
+                            900: '#4A0000'
+                        },
+                        darkscarlet: {
+                            800: '#2B0509',
+                            900: '#1A0507',
+                            950: '#100204'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
-        .dark .glass {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-cream-pattern {
+            background-color: #FAF7F2;
+            background-image: radial-gradient(#990000 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-color: #FAF7F2;
+        }
+        .dark .bg-dark-pattern {
+            background-color: #1A0507;
+            background-image: radial-gradient(#CC0000 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #CC0000;
+            color: #CC0000;
+            font-weight: 600;
+        }
+        .dark .tab-btn.active {
+            border-bottom: 2px solid #FBE5E5;
+            color: #FBE5E5;
         }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col antialiased">
+<body class="bg-cream-100 text-neutral-800 dark:bg-darkscarlet-900 dark:text-cream-100 min-h-screen flex flex-col justify-between selection:bg-scarlet-600 selection:text-white">
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 glass border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Brand / Logo -->
-                <a href="#home" class="flex items-center gap-2 group">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
-                        AR
-                    </div>
-                    <span class="font-bold text-lg tracking-tight text-slate-900 dark:text-white">Alex Rivera</span>
-                </a>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-slate-600 dark:text-slate-300">
-                    <a href="#home" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Home</a>
-                    <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">About</a>
-                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Skills</a>
-                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Experience</a>
-                    <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Projects</a>
-                    <a href="#resume" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Resume</a>
-                    <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors">Contact</a>
-                </nav>
-
-                <!-- Actions (Theme Toggle & Mobile Menu Btn) -->
-                <div class="flex items-center gap-3">
-                    <button id="theme-toggle" aria-label="Toggle Theme" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500">
-                        <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-base hidden"></i>
-                        <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-base hidden"></i>
-                    </button>
-
-                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-medium px-4 py-2 rounded-xl text-sm transition-all shadow-md shadow-brand-600/20 active:scale-95">
-                        Let's Talk
-                    </a>
-
-                    <button id="mobile-menu-btn" aria-label="Toggle Mobile Navigation" class="md:hidden p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 focus:outline-none">
-                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-lg"></i>
-                    </button>
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-cream-100/90 dark:bg-darkscarlet-950/90 border-b border-scarlet-600/10 dark:border-scarlet-700/30 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" onclick="showSection('home')" class="group flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-scarlet-700 text-cream-100 flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:bg-scarlet-600 transition-colors">
+                    NE
                 </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg font-bold tracking-tight text-scarlet-900 dark:text-cream-50 leading-none">Noorah Elbarky</span>
+                    <span class="text-xs text-scarlet-700 dark:text-scarlet-100/80 font-medium tracking-wide">Rutgers Business School</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <button onclick="showSection('home')" id="nav-home" class="tab-btn active text-sm font-medium transition-colors hover:text-scarlet-600 dark:hover:text-scarlet-100 py-2">Home</button>
+                <button onclick="showSection('about')" id="nav-about" class="tab-btn text-sm font-medium transition-colors hover:text-scarlet-600 dark:hover:text-scarlet-100 py-2">About</button>
+                <button onclick="showSection('projects')" id="nav-projects" class="tab-btn text-sm font-medium transition-colors hover:text-scarlet-600 dark:hover:text-scarlet-100 py-2">Projects</button>
+                <button onclick="showSection('resume')" id="nav-resume" class="tab-btn text-sm font-medium transition-colors hover:text-scarlet-600 dark:hover:text-scarlet-100 py-2">Resume & Skills</button>
+                <button onclick="showSection('contact')" id="nav-contact" class="tab-btn text-sm font-medium transition-colors hover:text-scarlet-600 dark:hover:text-scarlet-100 py-2">Contact</button>
+            </nav>
+
+            <!-- Actions: Dark Mode Toggle -->
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" aria-label="Toggle Theme" class="p-2.5 rounded-full bg-cream-200 dark:bg-darkscarlet-800 text-scarlet-800 dark:text-cream-100 hover:ring-2 hover:ring-scarlet-600 transition-all">
+                    <i id="theme-icon" class="fas fa-moon text-lg"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-scarlet-900 dark:text-cream-100 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg px-4 pt-2 pb-4 space-y-2">
-            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
-            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
-            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Skills</a>
-            <a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
-            <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
-            <a href="#resume" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Resume</a>
-            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 dark:bg-darkscarlet-950 border-b border-scarlet-700/20 px-4 pt-2 pb-6 space-y-3">
+            <button onclick="showSection('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-scarlet-900 dark:text-cream-100 hover:text-scarlet-600">Home</button>
+            <button onclick="showSection('about'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-scarlet-900 dark:text-cream-100 hover:text-scarlet-600">About</button>
+            <button onclick="showSection('projects'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-scarlet-900 dark:text-cream-100 hover:text-scarlet-600">Projects</button>
+            <button onclick="showSection('resume'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-scarlet-900 dark:text-cream-100 hover:text-scarlet-600">Resume & Skills</button>
+            <button onclick="showSection('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-scarlet-900 dark:text-cream-100 hover:text-scarlet-600">Contact</button>
         </div>
     </header>
 
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section id="home" class="py-20 lg:py-28 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <!-- Hero Content -->
-                    <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 text-xs font-semibold uppercase tracking-wider border border-brand-200 dark:border-brand-800/60 mb-6">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Available for new opportunities
-                        </div>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-6">
-                            Hi, I'm <span class="bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">Alex Rivera</span>
-                        </h1>
-                        <p class="text-xl font-medium text-slate-700 dark:text-slate-300 mb-4">
-                            Senior Full-Stack Software Engineer & UI/UX Craftsman
-                        </p>
-                        <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            I build scalable modern web applications, interactive digital products, and high-performance cloud architectures that turn ideas into impactful user experiences.
-                        </p>
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
 
-                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                            <a href="#resume" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold transition-all shadow-lg shadow-brand-600/30 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
-                                <i class="fa-solid fa-file-arrow-down"></i> View Resume
-                            </a>
-                            <a href="#contact" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
-                                <i class="fa-regular fa-envelope"></i> Contact Me
-                            </a>
-                        </div>
-
-                        <!-- Social Quick Links -->
-                        <div class="mt-10 flex items-center justify-center lg:justify-start gap-5 text-slate-500 dark:text-slate-400">
-                            <a href="https://github.com" target="_blank" aria-label="GitHub" class="hover:text-brand-600 dark:hover:text-brand-400 text-xl transition-colors">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-brand-600 dark:hover:text-brand-400 text-xl transition-colors">
-                                <i class="fa-brands fa-linkedin"></i>
-                            </a>
-                            <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="hover:text-brand-600 dark:hover:text-brand-400 text-xl transition-colors">
-                                <i class="fa-brands fa-x-twitter"></i>
-                            </a>
-                            <a href="mailto:alex@example.com" aria-label="Email" class="hover:text-brand-600 dark:hover:text-brand-400 text-xl transition-colors">
-                                <i class="fa-solid fa-envelope"></i>
-                            </a>
-                        </div>
+        <section id="section-home" class="space-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center pt-6 pb-12">
+                <div class="md:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-scarlet-100 dark:bg-scarlet-900/60 text-scarlet-800 dark:text-scarlet-100 text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-scarlet-600 animate-pulse"></span>
+                        <span>Rutgers Business School • Marketing Major</span>
                     </div>
-
-                    <!-- Hero Headshot Image -->
-                    <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
-                        <div class="relative group">
-                            <!-- Gradient Glow Background -->
-                            <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-indigo-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500"></div>
-                            
-                            <!-- Headshot Card -->
-                            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" 
-                                     alt="Alex Rivera Profile Headshot" 
-                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
-                                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/ffffff?text=Alex+Rivera';">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-slate-100/60 dark:bg-slate-800/40 border-y border-slate-200/80 dark:border-slate-800/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Background</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">About Me</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Bio Highlight 1 -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm">
-                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-6">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Engineering Focused</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Over 6 years of experience engineering high-availability web applications, design systems, and cloud infrastructure using modern JavaScript stacks.
-                        </p>
-                    </div>
-
-                    <!-- Bio Highlight 2 -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm">
-                        <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-6">
-                            <i class="fa-solid fa-compass-drafting"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">User-Centric Design</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            I bridge the gap between design and technical implementation, delivering fluid, accessible, and pixel-perfect digital interfaces.
-                        </p>
-                    </div>
-
-                    <!-- Bio Highlight 3 -->
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm">
-                        <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-6">
-                            <i class="fa-solid fa-rocket"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Continuous Innovation</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Passionate about emerging web technologies, developer experience tools, performance optimizations, and open-source contributions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Expertise</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Technical Stack</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Frontend Skills -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-laptop-code text-brand-600"></i> Frontend Development
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">JavaScript (ES6+)</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">TypeScript</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">React.js</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Next.js</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Tailwind CSS</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">HTML5 / CSS3</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Vue.js</span>
-                        </div>
-                    </div>
-
-                    <!-- Backend Skills -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-server text-indigo-600"></i> Backend & Databases
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Node.js</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Express</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Python</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">PostgreSQL</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">MongoDB</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">GraphQL</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">REST APIs</span>
-                        </div>
-                    </div>
-
-                    <!-- Tools & Architecture -->
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-gears text-purple-600"></i> DevOps & Tools
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Git & GitHub</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Docker</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">AWS / Vercel</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Jest / Vitest</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">Figma</span>
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold">CI/CD Pipelines</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Timeline -->
-        <section id="experience" class="py-20 bg-slate-100/60 dark:bg-slate-800/40 border-y border-slate-200/80 dark:border-slate-800/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Career Pathway</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Experience & Education</h2>
-                </div>
-
-                <div class="space-y-8 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-1/2 before:-ml-px before:w-0.5 before:bg-slate-300 dark:before:bg-slate-700">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-scarlet-900 dark:text-cream-50 leading-tight">
+                        Marketing Strategist, Designer & Creative Leader.
+                    </h1>
+                    <p class="text-lg text-neutral-600 dark:text-cream-200/90 font-normal leading-relaxed max-w-xl">
+                        Aspirant retail entrepreneur blending strategic market research with visual storytelling, photography, and high-impact campus leadership.
+                    </p>
                     
-                    <!-- Item 1 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md">
-                            <i class="fa-solid fa-briefcase"></i>
-                        </div>
-                        <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <span class="text-xs font-semibold text-brand-600 dark:text-brand-400">2022 - Present</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5">Senior Full Stack Engineer</h3>
-                            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-3">Apex Tech Solutions Inc.</p>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Lead architect for enterprise SaaS products serving 200k+ monthly users. Optimized backend queries to cut latency by 35%.
-                            </p>
+                    <!-- Quick Links CTA -->
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button onclick="showSection('resume')" class="px-6 py-3 rounded-xl bg-scarlet-700 hover:bg-scarlet-800 text-cream-50 font-medium shadow-md transition-all flex items-center space-x-2 transform hover:-translate-y-0.5">
+                            <i class="fas fa-file-alt"></i>
+                            <span>View Resume & Skills</span>
+                        </button>
+                        <button onclick="showSection('contact')" class="px-6 py-3 rounded-xl border-2 border-scarlet-700 text-scarlet-800 dark:text-cream-100 dark:border-cream-200/40 hover:bg-scarlet-700 hover:text-white dark:hover:bg-cream-100 dark:hover:text-darkscarlet-900 font-medium transition-all flex items-center space-x-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Get in Touch</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Headshot Container -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative group w-72 h-80 sm:w-80 sm:h-96">
+                        <!-- Decorative Frame Background -->
+                        <div class="absolute inset-0 rounded-3xl bg-scarlet-700 dark:bg-scarlet-600 transform rotate-3 group-hover:rotate-1 transition-transform opacity-80"></div>
+                        <!-- Headshot Placeholder Frame -->
+                        <div class="relative w-full h-full rounded-3xl bg-cream-200 dark:bg-darkscarlet-800 border-4 border-cream-50 dark:border-scarlet-800 overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center p-6">
+                            <!-- Image element with fallback -->
+                            <img src="https://placehold.co/400x500/7A0000/FAF7F2?text=Noorah+Elbarky+Headshot" alt="Noorah Elbarky Headshot" class="w-full h-full object-cover rounded-2xl" onerror="this.onerror=null; this.src='https://placehold.co/400x500/7A0000/FAF7F2?text=Noorah+Elbarky';">
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Item 2 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-600 text-white font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400">2019 - 2022</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5">Frontend Developer</h3>
-                            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-3">Digital Pulse Studio</p>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Developed dynamic React components, modular Tailwind UI design systems, and state management architectures for high-growth client web platforms.
-                            </p>
-                        </div>
+            <!-- Leadership Highlights Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-scarlet-700/10 dark:border-scarlet-800/40">
+                <div class="p-6 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/60 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-lg bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-scarlet-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-bullhorn text-lg"></i>
                     </div>
+                    <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50 mb-1">Content Development Coordinator</h3>
+                    <p class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 mb-2">Asian American Institute for Research & Engagement</p>
+                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Driving messaging strategy, research storytelling, and visual communication.</p>
+                </div>
 
-                    <!-- Item 3 -->
-                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white font-bold text-xs shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <span class="text-xs font-semibold text-purple-600 dark:text-purple-400">2015 - 2019</span>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5">B.S. in Computer Science</h3>
-                            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-3">State University of Technology</p>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Graduated Magna Cum Laude. Focused on software engineering, data structures, algorithms, and web architecture.
-                            </p>
-                        </div>
+                <div class="p-6 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/60 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-lg bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-scarlet-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-lg"></i>
                     </div>
+                    <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50 mb-1">Community Outreach Chair</h3>
+                    <p class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 mb-2">North African Student Association</p>
+                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Fostering campus community partnerships, cultural engagement, and events.</p>
+                </div>
 
+                <div class="p-6 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/60 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-lg bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-scarlet-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-palette text-lg"></i>
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50 mb-1">Campus Canvassador</h3>
+                    <p class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 mb-2">Canva Ambassador • Inaugural Term</p>
+                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Leading visual design workshops, promoting digital design fluency across campus.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Grid Section -->
-        <section id="projects" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Portfolio</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Featured Projects</h2>
+        <section id="section-about" class="hidden space-y-12 py-6">
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="text-center space-y-3">
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">About Noorah</h2>
+                    <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
                 </div>
 
-                <!-- Project Filter Buttons -->
-                <div class="flex justify-center items-center gap-2 mb-12 flex-wrap">
-                    <button class="project-tab active px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-brand-600 text-white shadow-md shadow-brand-600/20" data-filter="all">All Projects</button>
-                    <button class="project-tab px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700" data-filter="web">Web Apps</button>
-                    <button class="project-tab px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700" data-filter="design">Design Systems</button>
-                </div>
+                <div class="bg-cream-50 dark:bg-darkscarlet-800/80 rounded-3xl p-8 sm:p-10 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-lg space-y-6 text-lg leading-relaxed text-neutral-700 dark:text-cream-100">
+                    <p class="font-serif text-2xl text-scarlet-800 dark:text-scarlet-100 italic">
+                        "I aspire to be a leading entrepreneur in the retail industry, while currently focusing on my career as a Marketing intern in multiple fields. I love photography, design, and fashion."
+                    </p>
 
-                <!-- Projects Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card 1 -->
-                    <div class="project-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="web">
-                        <div class="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Analytics Dashboard Project" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Analytics+Dashboard';">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-2 mb-3">
-                                <span class="px-2.5 py-0.5 rounded-md bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 text-[11px] font-semibold">React</span>
-                                <span class="px-2.5 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-[11px] font-semibold">Tailwind</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Cloud Analytics Platform</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">Real-time SaaS dashboard featuring data visualization, export features, and user activity tracking.</p>
-                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/60 text-sm">
-                                <a href="#" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                                <a href="#" class="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-base text-neutral-600 dark:text-cream-200/90">
+                        As a student at <strong>Rutgers Business School</strong>, my marketing philosophy sits at the intersection of data-informed strategy and expressive visual media. Whether coordinating outreach initiatives, hosting design activation sessions as a Canva Ambassador, or capturing aesthetics through photography, I focus on building memorable brand experiences.
+                    </p>
 
-                    <!-- Project Card 2 -->
-                    <div class="project-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="design">
-                        <div class="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
-                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800" 
-                                 alt="Design System Kit" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Design+System';">
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-scarlet-700/10 dark:border-scarlet-800/40 text-center">
+                        <div class="p-3">
+                            <i class="fas fa-camera text-2xl text-scarlet-700 dark:text-scarlet-200 mb-2"></i>
+                            <h4 class="text-sm font-semibold">Photography</h4>
                         </div>
-                        <div class="p-6">
-                            <div class="flex gap-2 mb-3">
-                                <span class="px-2.5 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 text-[11px] font-semibold">Figma</span>
-                                <span class="px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold">CSS Tokens</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Nexus UI Design System</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">Comprehensive component design kit with dark mode defaults and accessible contrast standards.</p>
-                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/60 text-sm">
-                                <a href="#" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1">View System <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                                <a href="#" class="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                            </div>
+                        <div class="p-3">
+                            <i class="fas fa-pencil-ruler text-2xl text-scarlet-700 dark:text-scarlet-200 mb-2"></i>
+                            <h4 class="text-sm font-semibold">Design</h4>
                         </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div class="project-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="web">
-                        <div class="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-700">
-                            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=800" 
-                                 alt="E-Commerce App" 
-                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=E-Commerce+App';">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-2 mb-3">
-                                <span class="px-2.5 py-0.5 rounded-md bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 text-[11px] font-semibold">Next.js</span>
-                                <span class="px-2.5 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 text-[11px] font-semibold">Stripe API</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Omni Store E-Commerce</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">Headless store front with server-side generation, secure checkout workflow, and order updates.</p>
-                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700/60 text-sm">
-                                <a href="#" class="text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                                <a href="#" class="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                            </div>
+                        <div class="p-3">
+                            <i class="fas fa-shirt text-2xl text-scarlet-700 dark:text-scarlet-200 mb-2"></i>
+                            <h4 class="text-sm font-semibold">Fashion</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Resume Section -->
-        <section id="resume" class="py-20 bg-slate-100/60 dark:bg-slate-800/40 border-y border-slate-200/80 dark:border-slate-800/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Qualifications</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Curriculum Vitae</h2>
+        <section id="section-projects" class="hidden space-y-10 py-6">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Featured Portfolio Work</h2>
+                <p class="text-neutral-600 dark:text-cream-200/80 max-w-xl mx-auto">A showcase of visual marketing, brand campaign strategies, and creative assets.</p>
+                <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 overflow-hidden shadow-sm hover:shadow-xl transition-all">
+                    <div class="h-52 bg-neutral-200 dark:bg-darkscarlet-950 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/990000/FAF7F2?text=Canva+Campus+Campaign" alt="Canva Campus Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase text-scarlet-700 dark:text-scarlet-200 tracking-wider">Canva Ambassador Program</span>
+                        <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50">Inaugural Campus Canvassador Activation</h3>
+                        <p class="text-sm text-neutral-600 dark:text-cream-200/80">Developed engaging digital marketing materials and on-campus workshops encouraging design literacy among Rutgers students.</p>
+                    </div>
                 </div>
 
-                <!-- Resume Preview Card -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden">
-                    <div class="p-8 sm:p-10">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-8 border-b border-slate-200 dark:border-slate-700">
-                            <div>
-                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Alex Rivera</h3>
-                                <p class="text-brand-600 dark:text-brand-400 font-medium text-sm">Senior Full-Stack Engineer & UI Architect</p>
-                            </div>
-                            <button id="download-resume-btn" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-all shadow-md shadow-brand-600/20 active:scale-95 flex items-center gap-2">
-                                <i class="fa-solid fa-download"></i> Download PDF
-                            </button>
-                        </div>
+                <!-- Project 2 -->
+                <div class="group rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 overflow-hidden shadow-sm hover:shadow-xl transition-all">
+                    <div class="h-52 bg-neutral-200 dark:bg-darkscarlet-950 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/7A0000/FAF7F2?text=Community+Outreach+Media" alt="Community Outreach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase text-scarlet-700 dark:text-scarlet-200 tracking-wider">North African Student Association</span>
+                        <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50">Cultural Community Outreach Strategy</h3>
+                        <p class="text-sm text-neutral-600 dark:text-cream-200/80">Designed promotional collateral, managed partner communications, and boosted event attendance through tailored campaign initiatives.</p>
+                    </div>
+                </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 border-b border-slate-200 dark:border-slate-700">
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Key Competencies</h4>
-                                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Full-Stack Web Architecture</li>
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Scalable Microservices & APIs</li>
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> UI/UX Design System Implementation</li>
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500 text-xs"></i> Automated Testing & Code Quality</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Languages & Spoken</h4>
-                                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-globe text-brand-500 text-xs"></i> English (Native / Fluent)</li>
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-globe text-brand-500 text-xs"></i> Spanish (Professional Working)</li>
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-500 text-xs"></i> Location: San Francisco, CA (Remote Available)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Download Notification Banner (Hidden by default) -->
-                        <div id="resume-alert" class="hidden mt-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-sm flex items-center justify-between">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check"></i> Resume PDF download started successfully!</span>
-                            <button id="close-resume-alert" class="text-emerald-800 dark:text-emerald-300 hover:opacity-75"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
+                <!-- Project 3 -->
+                <div class="group rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 overflow-hidden shadow-sm hover:shadow-xl transition-all">
+                    <div class="h-52 bg-neutral-200 dark:bg-darkscarlet-950 relative overflow-hidden">
+                        <img src="https://placehold.co/600x400/4A0000/FAF7F2?text=Asian+American+Institute+Content" alt="Content Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase text-scarlet-700 dark:text-scarlet-200 tracking-wider">AAIRE</span>
+                        <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50">Research & Engagement Content Strategy</h3>
+                        <p class="text-sm text-neutral-600 dark:text-cream-200/80">Coordinates digital content publishing, synthesizing complex academic research into engaging social media graphics and newsletters.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Get In Touch</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">Let's Work Together</h2>
+        <section id="section-resume" class="hidden space-y-12 py-6">
+            <!-- Section Header -->
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Skills & Resume</h2>
+                <p class="text-neutral-600 dark:text-cream-200/80 max-w-xl mx-auto">A comprehensive overview of my core competencies, leadership experience, and academic background.</p>
+                <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Core Skills Chips -->
+            <div class="bg-cream-50 dark:bg-darkscarlet-800/60 rounded-3xl p-8 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-md space-y-6">
+                <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50 flex items-center space-x-2">
+                    <i class="fas fa-star text-scarlet-700 dark:text-scarlet-200 text-sm"></i>
+                    <span>Core Competencies</span>
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Marketing Strategy</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Outreach</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Design</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Creative Strategy</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Social Media</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Canva</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Leadership</span>
+                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Initiative</span>
+                </div>
+            </div>
+
+            <!-- Complete Resume Document Display -->
+            <div class="bg-cream-50 dark:bg-darkscarlet-800/80 rounded-3xl p-8 sm:p-12 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-lg space-y-8">
+                <!-- Resume Top Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-scarlet-700/20 pb-6 gap-4">
+                    <div>
+                        <h3 class="text-3xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Noorah Elbarky</h3>
+                        <p class="text-scarlet-700 dark:text-scarlet-200 font-medium">Rutgers Business School • Marketing Major</p>
+                        <p class="text-xs text-neutral-500 dark:text-cream-200/60 mt-1">noorahelbarky@gmail.com</p>
+                    </div>
+                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-scarlet-700 hover:bg-scarlet-800 text-cream-50 text-sm font-medium transition-all inline-flex items-center space-x-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>View Official Resume</span>
+                    </a>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    <!-- Contact Information -->
-                    <div class="lg:col-span-5 space-y-6">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
+                <!-- Resume Body Sections -->
+                <div class="space-y-8">
+                    <!-- Education -->
+                    <div class="space-y-3">
+                        <h4 class="font-serif text-lg font-bold text-scarlet-800 dark:text-scarlet-200 uppercase tracking-wider border-b border-scarlet-700/10 dark:border-scarlet-800/40 pb-1">Education</h4>
+                        <div class="flex justify-between items-baseline">
                             <div>
-                                <h3 class="font-bold text-slate-900 dark:text-white">Email Address</h3>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">alex.rivera@example.com</p>
+                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Rutgers University – Rutgers Business School</h5>
+                                <p class="text-sm text-neutral-600 dark:text-cream-200/80">Bachelor of Science in Marketing</p>
                             </div>
-                        </div>
-
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-slate-900 dark:text-white">Current Location</h3>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">San Francisco, California</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg shrink-0">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-slate-900 dark:text-white">Availability</h3>
-                                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Open for remote & full-time roles</p>
-                            </div>
+                            <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">New Brunswick, NJ</span>
                         </div>
                     </div>
 
-                    <!-- Contact Form -->
-                    <div class="lg:col-span-7">
-                        <form id="contact-form" class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl space-y-6">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Your Name</label>
-                                    <input type="text" id="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all text-sm">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Your Email</label>
-                                    <input type="email" id="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all text-sm">
-                                </div>
-                            </div>
+                    <!-- Experience -->
+                    <div class="space-y-6">
+                        <h4 class="font-serif text-lg font-bold text-scarlet-800 dark:text-scarlet-200 uppercase tracking-wider border-b border-scarlet-700/10 dark:border-scarlet-800/40 pb-1">Professional Experience & Leadership</h4>
 
-                            <div>
-                                <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Subject</label>
-                                <input type="text" id="subject" required placeholder="Project Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all text-sm">
+                        <!-- Role 1 -->
+                        <div class="space-y-2">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Content Development Coordinator</h5>
+                                <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">Asian American Institute for Research and Engagement</span>
                             </div>
+                            <ul class="list-disc list-inside text-sm text-neutral-600 dark:text-cream-200/90 space-y-1 pl-2">
+                                <li>Direct and design social digital content to communicate research findings and promote institute activations.</li>
+                                <li>Formulate creative campaigns that increase digital community engagement across target demographics.</li>
+                            </ul>
+                        </div>
 
-                            <div>
-                                <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Message</label>
-                                <textarea id="message" rows="4" required placeholder="Hi Alex, I'd like to discuss a new web project..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all text-sm resize-none"></textarea>
+                        <!-- Role 2 -->
+                        <div class="space-y-2">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Community Outreach Chair</h5>
+                                <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">North African Student Association</span>
                             </div>
+                            <ul class="list-disc list-inside text-sm text-neutral-600 dark:text-cream-200/90 space-y-1 pl-2">
+                                <li>Spearhead community partnerships and collaborative cultural events across campus organizations.</li>
+                                <li>Lead multi-channel outreach strategies, boosting participation and brand recognition.</li>
+                            </ul>
+                        </div>
 
-                            <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-600/30 active:scale-[0.99] flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-paper-plane"></i> Send Message
-                            </button>
-
-                            <!-- Success Feedback State -->
-                            <div id="form-success" class="hidden p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-sm text-center">
-                                <i class="fa-solid fa-circle-check mr-1"></i> Thank you! Your message has been sent successfully.
+                        <!-- Role 3 -->
+                        <div class="space-y-2">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Campus Canvassador (Canva Ambassador)</h5>
+                                <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">Inaugural Term</span>
                             </div>
-                        </form>
+                            <ul class="list-disc list-inside text-sm text-neutral-600 dark:text-cream-200/90 space-y-1 pl-2">
+                                <li>Selected for the first inaugural term to represent Canva's brand ecosystem on campus.</li>
+                                <li>Host design literacy workshops and foster creative graphic design practices among student teams.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Career Objective -->
+                    <div class="space-y-2">
+                        <h4 class="font-serif text-lg font-bold text-scarlet-800 dark:text-scarlet-200 uppercase tracking-wider border-b border-scarlet-700/10 dark:border-scarlet-800/40 pb-1">Career Vision</h4>
+                        <p class="text-sm text-neutral-600 dark:text-cream-200/90 leading-relaxed">
+                            Aspiring retail entrepreneur focusing on marketing internships across retail, fashion, and visual media to pioneer innovative brand strategies and consumer-centric physical and digital commerce experiences.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section id="section-contact" class="hidden space-y-10 py-6">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Let's Connect</h2>
+                <p class="text-neutral-600 dark:text-cream-200/80 max-w-xl mx-auto">Feel free to reach out for marketing internships, creative collaborations, or general networking.</p>
+                <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Contact Options Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <!-- LinkedIn Link -->
+                <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuU3rb6V2RHC8RvUW3ch%2BYw%3D%3D" target="_blank" rel="noopener noreferrer" class="group p-8 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 text-center hover:border-scarlet-600 transition-all shadow-sm hover:shadow-lg flex flex-col items-center space-y-4 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-full bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-cream-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50">LinkedIn</h3>
+                        <p class="text-xs text-neutral-500 dark:text-cream-200/70 mt-1">Connect Professionally</p>
+                    </div>
+                    <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 flex items-center space-x-1">
+                        <span>View Profile</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                </a>
+
+                <!-- Instagram Link -->
+                <a href="https://www.instagram.com/noorahs_portfolio/#" target="_blank" rel="noopener noreferrer" class="group p-8 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 text-center hover:border-scarlet-600 transition-all shadow-sm hover:shadow-lg flex flex-col items-center space-y-4 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-full bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-cream-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50">Instagram Portfolio</h3>
+                        <p class="text-xs text-neutral-500 dark:text-cream-200/70 mt-1">@noorahs_portfolio</p>
+                    </div>
+                    <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 flex items-center space-x-1">
+                        <span>View Gallery</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                </a>
+
+                <!-- Email Link -->
+                <a href="mailto:noorahelbarky@gmail.com" class="group p-8 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 text-center hover:border-scarlet-600 transition-all shadow-sm hover:shadow-lg flex flex-col items-center space-y-4 transform hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-full bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-cream-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50">Email Direct</h3>
+                        <p class="text-xs text-neutral-500 dark:text-cream-200/70 mt-1">noorahelbarky@gmail.com</p>
+                    </div>
+                    <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 flex items-center space-x-1">
+                        <span>Send Message</span>
+                        <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm">
-                        AR
-                    </div>
-                    <span class="font-bold text-base text-white">Alex Rivera</span>
-                </div>
-                <div class="text-xs text-slate-500">
-                    &copy; <span id="year"></span> Alex Rivera. All rights reserved.
-                </div>
-                <div class="flex items-center gap-4 text-base">
-                    <a href="https://github.com" target="_blank" aria-label="GitHub" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
-                </div>
+    <footer class="bg-cream-200 dark:bg-darkscarlet-950 border-t border-scarlet-700/10 dark:border-scarlet-800/30 py-8 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="font-serif font-semibold text-scarlet-900 dark:text-cream-50">Noorah Elbarky</p>
+            <p class="text-xs text-neutral-600 dark:text-cream-200/70">Rutgers Business School • Marketing Student & Campus Leader</p>
+            <div class="flex justify-center space-x-6 text-scarlet-700 dark:text-cream-100 text-lg">
+                <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuU3rb6V2RHC8RvUW3ch%2BYw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin hover:opacity-80"></i></a>
+                <a href="https://www.instagram.com/noorahs_portfolio/#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram hover:opacity-80"></i></a>
+                <a href="mailto:noorahelbarky@gmail.com" aria-label="Email"><i class="far fa-envelope hover:opacity-80"></i></a>
             </div>
+            <p class="text-[10px] text-neutral-500 dark:text-cream-200/40">© Noorah Elbarky. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
     <script>
-        // Set year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Tab Navigation Controller
+        function showSection(sectionId) {
+            const sections = ['home', 'about', 'projects', 'resume', 'contact'];
+            
+            sections.forEach(sec => {
+                const element = document.getElementById(`section-${sec}`);
+                const navBtn = document.getElementById(`nav-${sec}`);
+                
+                if (sec === sectionId) {
+                    element.classList.remove('hidden');
+                    if (navBtn) navBtn.classList.add('active');
+                } else {
+                    element.classList.add('hidden');
+                    if (navBtn) navBtn.classList.remove('active');
+                }
+            });
 
-        // Theme Toggle Logic
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-        const updateThemeUI = () => {
-            if (document.documentElement.classList.contains('dark')) {
-                darkIcon.classList.add('hidden');
-                lightIcon.classList.remove('hidden');
-            } else {
-                lightIcon.classList.add('hidden');
-                darkIcon.classList.remove('hidden');
-            }
-        };
-
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
+            // Smooth scroll to top when changing section
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        updateThemeUI();
+
+        // Mobile Navigation Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Dark Mode Theme Controller
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
 
         themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-            updateThemeUI();
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Project Filter Logic
-        const tabs = document.querySelectorAll('.project-tab');
-        const projectCards = document.querySelectorAll('.project-card');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active styling from all tabs
-                tabs.forEach(t => {
-                    t.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-md');
-                    t.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border');
-                });
-
-                // Add active styling to selected tab
-                tab.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-md');
-                tab.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border');
-
-                const filter = tab.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Resume Download Alert Trigger
-        const downloadResumeBtn = document.getElementById('download-resume-btn');
-        const resumeAlert = document.getElementById('resume-alert');
-        const closeResumeAlert = document.getElementById('close-resume-alert');
-
-        downloadResumeBtn.addEventListener('click', () => {
-            resumeAlert.classList.remove('hidden');
-        });
-
-        closeResumeAlert.addEventListener('click', () => {
-            resumeAlert.classList.add('hidden');
-        });
-
-        // Contact Form Interactive Submission State
-        const contactForm = document.getElementById('contact-form');
-        const formSuccess = document.getElementById('form-success');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formSuccess.classList.remove('hidden');
-            contactForm.reset();
-            setTimeout(() => {
-                formSuccess.classList.add('hidden');
-            }, 6000);
+            const isDark = document.documentElement.classList.toggle('dark');
+            if (isDark) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
         });
     </script>
 </body>
