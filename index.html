@@ -57,7 +57,6 @@
             background-color: #FAF7F2;
             background-image: radial-gradient(#990000 0.5px, transparent 0.5px);
             background-size: 24px 24px;
-            background-color: #FAF7F2;
         }
         .dark .bg-dark-pattern {
             background-color: #1A0507;
@@ -125,6 +124,7 @@
     <!-- Main Content Area -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
 
+        <!-- HOME SECTION -->
         <section id="section-home" class="space-y-16">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center pt-6 pb-12">
                 <div class="md:col-span-7 space-y-6">
@@ -145,10 +145,11 @@
                             <i class="fas fa-file-alt"></i>
                             <span>View Resume & Skills</span>
                         </button>
-                        <button onclick="showSection('contact')" class="px-6 py-3 rounded-xl border-2 border-scarlet-700 text-scarlet-800 dark:text-cream-100 dark:border-cream-200/40 hover:bg-scarlet-700 hover:text-white dark:hover:bg-cream-100 dark:hover:text-darkscarlet-900 font-medium transition-all flex items-center space-x-2">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Get in Touch</span>
-                        </button>
+                        <!-- Download Link configured using embedded Base64 Data URL -->
+                        <a id="resume-download-btn-1" download="Noorah_Elbarky_Resume.pdf" class="px-6 py-3 rounded-xl border-2 border-scarlet-700 text-scarlet-800 dark:text-cream-100 dark:border-cream-200/40 hover:bg-scarlet-700 hover:text-white dark:hover:bg-cream-100 dark:hover:text-darkscarlet-900 font-medium transition-all flex items-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span>Download PDF</span>
+                        </a>
                     </div>
                 </div>
 
@@ -157,10 +158,10 @@
                     <div class="relative group w-72 h-80 sm:w-80 sm:h-96">
                         <!-- Decorative Frame Background -->
                         <div class="absolute inset-0 rounded-3xl bg-scarlet-700 dark:bg-scarlet-600 transform rotate-3 group-hover:rotate-1 transition-transform opacity-80"></div>
-                        <!-- Headshot Placeholder Frame -->
-                        <div class="relative w-full h-full rounded-3xl bg-cream-200 dark:bg-darkscarlet-800 border-4 border-cream-50 dark:border-scarlet-800 overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center p-6">
-                            <!-- Image element with fallback -->
-                            <img src="https://placehold.co/400x500/7A0000/FAF7F2?text=Noorah+Elbarky+Headshot" alt="Noorah Elbarky Headshot" class="w-full h-full object-cover rounded-2xl" onerror="this.onerror=null; this.src='https://placehold.co/400x500/7A0000/FAF7F2?text=Noorah+Elbarky';">
+                        <!-- Headshot Frame -->
+                        <div class="relative w-full h-full rounded-3xl bg-cream-200 dark:bg-darkscarlet-800 border-4 border-cream-50 dark:border-scarlet-800 overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center p-1">
+                            <!-- Embedded Image Source (Data URL with fallback) -->
+                            <img id="headshot-img" alt="Noorah Elbarky Headshot" class="w-full h-full object-cover rounded-2xl" onerror="this.onerror=null; this.src='https://placehold.co/400x500/7A0000/FAF7F2?text=Noorah+Elbarky';">
                         </div>
                     </div>
                 </div>
@@ -183,321 +184,141 @@
                     </div>
                     <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50 mb-1">Community Outreach Chair</h3>
                     <p class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 mb-2">North African Student Association</p>
-                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Fostering campus community partnerships, cultural engagement, and events.</p>
+                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Organizing impactful campus events, outreach initiatives, and cultural programming.</p>
                 </div>
 
                 <div class="p-6 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/60 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-sm hover:shadow-md transition-shadow">
                     <div class="w-10 h-10 rounded-lg bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-scarlet-100 flex items-center justify-center mb-4">
-                        <i class="fas fa-palette text-lg"></i>
+                        <i class="fas fa-store text-lg"></i>
                     </div>
-                    <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50 mb-1">Campus Canvassador</h3>
-                    <p class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 mb-2">Canva Ambassador • Inaugural Term</p>
-                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Leading visual design workshops, promoting digital design fluency across campus.</p>
+                    <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50 mb-1">Retail Entrepreneur</h3>
+                    <p class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 mb-2">Rutgers Business School</p>
+                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Connecting market research, brand building, and customer engagement strategy.</p>
                 </div>
             </div>
         </section>
 
-        <section id="section-about" class="hidden space-y-12 py-6">
-            <div class="max-w-3xl mx-auto space-y-8">
-                <div class="text-center space-y-3">
-                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">About Noorah</h2>
-                    <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
+        <!-- RESUME & SKILLS SECTION -->
+        <section id="section-resume" class="hidden space-y-12">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-scarlet-700/20 pb-6">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Resume & Credentials</h2>
+                    <p class="text-sm text-neutral-600 dark:text-cream-200/80">Overview of academic background, experience, and skills.</p>
                 </div>
-
-                <div class="bg-cream-50 dark:bg-darkscarlet-800/80 rounded-3xl p-8 sm:p-10 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-lg space-y-6 text-lg leading-relaxed text-neutral-700 dark:text-cream-100">
-                    <p class="font-serif text-2xl text-scarlet-800 dark:text-scarlet-100 italic">
-                        "I aspire to be a leading entrepreneur in the retail industry, while currently focusing on my career as a Marketing intern in multiple fields. I love photography, design, and fashion."
-                    </p>
-
-                    <p class="text-base text-neutral-600 dark:text-cream-200/90">
-                        As a student at <strong>Rutgers Business School</strong>, my marketing philosophy sits at the intersection of data-informed strategy and expressive visual media. Whether coordinating outreach initiatives, hosting design activation sessions as a Canva Ambassador, or capturing aesthetics through photography, I focus on building memorable brand experiences.
-                    </p>
-
-                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-scarlet-700/10 dark:border-scarlet-800/40 text-center">
-                        <div class="p-3">
-                            <i class="fas fa-camera text-2xl text-scarlet-700 dark:text-scarlet-200 mb-2"></i>
-                            <h4 class="text-sm font-semibold">Photography</h4>
-                        </div>
-                        <div class="p-3">
-                            <i class="fas fa-pencil-ruler text-2xl text-scarlet-700 dark:text-scarlet-200 mb-2"></i>
-                            <h4 class="text-sm font-semibold">Design</h4>
-                        </div>
-                        <div class="p-3">
-                            <i class="fas fa-shirt text-2xl text-scarlet-700 dark:text-scarlet-200 mb-2"></i>
-                            <h4 class="text-sm font-semibold">Fashion</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-projects" class="hidden space-y-10 py-6">
-            <div class="text-center space-y-3">
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Featured Portfolio Work</h2>
-                <p class="text-neutral-600 dark:text-cream-200/80 max-w-xl mx-auto">A showcase of visual marketing, brand campaign strategies, and creative assets.</p>
-                <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
-            </div>
-
-            <!-- Project Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="group rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                    <div class="h-52 bg-neutral-200 dark:bg-darkscarlet-950 relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/990000/FAF7F2?text=Canva+Campus+Campaign" alt="Canva Campus Campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-semibold uppercase text-scarlet-700 dark:text-scarlet-200 tracking-wider">Canva Ambassador Program</span>
-                        <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50">Inaugural Campus Canvassador Activation</h3>
-                        <p class="text-sm text-neutral-600 dark:text-cream-200/80">Developed engaging digital marketing materials and on-campus workshops encouraging design literacy among Rutgers students.</p>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="group rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                    <div class="h-52 bg-neutral-200 dark:bg-darkscarlet-950 relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/7A0000/FAF7F2?text=Community+Outreach+Media" alt="Community Outreach" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-semibold uppercase text-scarlet-700 dark:text-scarlet-200 tracking-wider">North African Student Association</span>
-                        <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50">Cultural Community Outreach Strategy</h3>
-                        <p class="text-sm text-neutral-600 dark:text-cream-200/80">Designed promotional collateral, managed partner communications, and boosted event attendance through tailored campaign initiatives.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="group rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                    <div class="h-52 bg-neutral-200 dark:bg-darkscarlet-950 relative overflow-hidden">
-                        <img src="https://placehold.co/600x400/4A0000/FAF7F2?text=Asian+American+Institute+Content" alt="Content Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <span class="text-xs font-semibold uppercase text-scarlet-700 dark:text-scarlet-200 tracking-wider">AAIRE</span>
-                        <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50">Research & Engagement Content Strategy</h3>
-                        <p class="text-sm text-neutral-600 dark:text-cream-200/80">Coordinates digital content publishing, synthesizing complex academic research into engaging social media graphics and newsletters.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-resume" class="hidden space-y-12 py-6">
-            <!-- Section Header -->
-            <div class="text-center space-y-3">
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Skills & Resume</h2>
-                <p class="text-neutral-600 dark:text-cream-200/80 max-w-xl mx-auto">A comprehensive overview of my core competencies, leadership experience, and academic background.</p>
-                <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
-            </div>
-
-            <!-- Core Skills Chips -->
-            <div class="bg-cream-50 dark:bg-darkscarlet-800/60 rounded-3xl p-8 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-md space-y-6">
-                <h3 class="font-serif text-xl font-bold text-scarlet-900 dark:text-cream-50 flex items-center space-x-2">
-                    <i class="fas fa-star text-scarlet-700 dark:text-scarlet-200 text-sm"></i>
-                    <span>Core Competencies</span>
-                </h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Marketing Strategy</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Outreach</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Design</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Creative Strategy</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Social Media</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Canva</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Leadership</span>
-                    <span class="px-4 py-2 rounded-xl bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-900 dark:text-cream-100 font-medium text-sm border border-scarlet-700/20 shadow-sm">Initiative</span>
-                </div>
-            </div>
-
-            <!-- Complete Resume Document Display -->
-            <div class="bg-cream-50 dark:bg-darkscarlet-800/80 rounded-3xl p-8 sm:p-12 border border-scarlet-700/10 dark:border-scarlet-800/30 shadow-lg space-y-8">
-                <!-- Resume Top Header -->
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-scarlet-700/20 pb-6 gap-4">
-                    <div>
-                        <h3 class="text-3xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Noorah Elbarky</h3>
-                        <p class="text-scarlet-700 dark:text-scarlet-200 font-medium">Rutgers Business School • Marketing Major</p>
-                        <p class="text-xs text-neutral-500 dark:text-cream-200/60 mt-1">noorahelbarky@gmail.com</p>
-                    </div>
-                    <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-scarlet-700 hover:bg-scarlet-800 text-cream-50 text-sm font-medium transition-all inline-flex items-center space-x-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <div class="flex space-x-3">
+                    <a id="resume-open-btn" target="_blank" class="px-5 py-2.5 rounded-xl bg-scarlet-700 hover:bg-scarlet-800 text-white font-medium text-sm flex items-center space-x-2 shadow-sm transition-all cursor-pointer">
                         <i class="fas fa-external-link-alt"></i>
-                        <span>View Official Resume</span>
+                        <span>Open PDF in New Tab</span>
+                    </a>
+                    <a id="resume-download-btn-2" download="Noorah_Elbarky_Resume.pdf" class="px-5 py-2.5 rounded-xl border border-scarlet-700 dark:border-cream-200/30 hover:bg-scarlet-100 dark:hover:bg-darkscarlet-800 text-scarlet-900 dark:text-cream-100 font-medium text-sm flex items-center space-x-2 transition-all cursor-pointer">
+                        <i class="fas fa-download"></i>
+                        <span>Download PDF</span>
                     </a>
                 </div>
+            </div>
 
-                <!-- Resume Body Sections -->
-                <div class="space-y-8">
-                    <!-- Education -->
-                    <div class="space-y-3">
-                        <h4 class="font-serif text-lg font-bold text-scarlet-800 dark:text-scarlet-200 uppercase tracking-wider border-b border-scarlet-700/10 dark:border-scarlet-800/40 pb-1">Education</h4>
-                        <div class="flex justify-between items-baseline">
-                            <div>
-                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Rutgers University – Rutgers Business School</h5>
-                                <p class="text-sm text-neutral-600 dark:text-cream-200/80">Bachelor of Science in Marketing</p>
-                            </div>
-                            <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">New Brunswick, NJ</span>
-                        </div>
-                    </div>
-
-                    <!-- Experience -->
-                    <div class="space-y-6">
-                        <h4 class="font-serif text-lg font-bold text-scarlet-800 dark:text-scarlet-200 uppercase tracking-wider border-b border-scarlet-700/10 dark:border-scarlet-800/40 pb-1">Professional Experience & Leadership</h4>
-
-                        <!-- Role 1 -->
-                        <div class="space-y-2">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
-                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Content Development Coordinator</h5>
-                                <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">Asian American Institute for Research and Engagement</span>
-                            </div>
-                            <ul class="list-disc list-inside text-sm text-neutral-600 dark:text-cream-200/90 space-y-1 pl-2">
-                                <li>Direct and design social digital content to communicate research findings and promote institute activations.</li>
-                                <li>Formulate creative campaigns that increase digital community engagement across target demographics.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Role 2 -->
-                        <div class="space-y-2">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
-                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Community Outreach Chair</h5>
-                                <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">North African Student Association</span>
-                            </div>
-                            <ul class="list-disc list-inside text-sm text-neutral-600 dark:text-cream-200/90 space-y-1 pl-2">
-                                <li>Spearhead community partnerships and collaborative cultural events across campus organizations.</li>
-                                <li>Lead multi-channel outreach strategies, boosting participation and brand recognition.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Role 3 -->
-                        <div class="space-y-2">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
-                                <h5 class="font-bold text-neutral-900 dark:text-cream-100">Campus Canvassador (Canva Ambassador)</h5>
-                                <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-300">Inaugural Term</span>
-                            </div>
-                            <ul class="list-disc list-inside text-sm text-neutral-600 dark:text-cream-200/90 space-y-1 pl-2">
-                                <li>Selected for the first inaugural term to represent Canva's brand ecosystem on campus.</li>
-                                <li>Host design literacy workshops and foster creative graphic design practices among student teams.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Career Objective -->
-                    <div class="space-y-2">
-                        <h4 class="font-serif text-lg font-bold text-scarlet-800 dark:text-scarlet-200 uppercase tracking-wider border-b border-scarlet-700/10 dark:border-scarlet-800/40 pb-1">Career Vision</h4>
-                        <p class="text-sm text-neutral-600 dark:text-cream-200/90 leading-relaxed">
-                            Aspiring retail entrepreneur focusing on marketing internships across retail, fashion, and visual media to pioneer innovative brand strategies and consumer-centric physical and digital commerce experiences.
+            <!-- Resume PDF Viewer Embed -->
+            <div class="w-full bg-cream-50 dark:bg-darkscarlet-800 rounded-2xl border border-scarlet-700/20 overflow-hidden shadow-lg" style="height: 750px;">
+                <object id="resume-object" type="application/pdf" class="w-full h-full">
+                    <div class="p-8 text-center flex flex-col items-center justify-center h-full">
+                        <i class="fas fa-file-pdf text-5xl text-scarlet-600 mb-4"></i>
+                        <h3 class="font-serif text-xl font-bold mb-2">Resume Preview</h3>
+                        <p class="text-sm text-neutral-600 dark:text-cream-200/80 max-w-md mb-6">
+                            Click below to view or download your embedded resume PDF directly.
                         </p>
+                        <a id="resume-download-btn-fallback" download="Noorah_Elbarky_Resume.pdf" class="px-6 py-3 rounded-xl bg-scarlet-700 text-white font-medium text-sm flex items-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span>View / Download Resume PDF</span>
+                        </a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-contact" class="hidden space-y-10 py-6">
-            <div class="text-center space-y-3">
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-scarlet-900 dark:text-cream-50">Let's Connect</h2>
-                <p class="text-neutral-600 dark:text-cream-200/80 max-w-xl mx-auto">Feel free to reach out for marketing internships, creative collaborations, or general networking.</p>
-                <div class="w-16 h-1 bg-scarlet-700 mx-auto rounded-full"></div>
-            </div>
-
-            <!-- Contact Options Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <!-- LinkedIn Link -->
-                <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuU3rb6V2RHC8RvUW3ch%2BYw%3D%3D" target="_blank" rel="noopener noreferrer" class="group p-8 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 text-center hover:border-scarlet-600 transition-all shadow-sm hover:shadow-lg flex flex-col items-center space-y-4 transform hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-full bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-cream-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50">LinkedIn</h3>
-                        <p class="text-xs text-neutral-500 dark:text-cream-200/70 mt-1">Connect Professionally</p>
-                    </div>
-                    <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 flex items-center space-x-1">
-                        <span>View Profile</span>
-                        <i class="fas fa-arrow-right text-xs"></i>
-                    </span>
-                </a>
-
-                <!-- Instagram Link -->
-                <a href="https://www.instagram.com/noorahs_portfolio/#" target="_blank" rel="noopener noreferrer" class="group p-8 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 text-center hover:border-scarlet-600 transition-all shadow-sm hover:shadow-lg flex flex-col items-center space-y-4 transform hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-full bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-cream-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50">Instagram Portfolio</h3>
-                        <p class="text-xs text-neutral-500 dark:text-cream-200/70 mt-1">@noorahs_portfolio</p>
-                    </div>
-                    <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 flex items-center space-x-1">
-                        <span>View Gallery</span>
-                        <i class="fas fa-arrow-right text-xs"></i>
-                    </span>
-                </a>
-
-                <!-- Email Link -->
-                <a href="mailto:noorahelbarky@gmail.com" class="group p-8 rounded-2xl bg-cream-50 dark:bg-darkscarlet-800/70 border border-scarlet-700/10 dark:border-scarlet-800/30 text-center hover:border-scarlet-600 transition-all shadow-sm hover:shadow-lg flex flex-col items-center space-y-4 transform hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-full bg-scarlet-100 dark:bg-scarlet-900/80 text-scarlet-700 dark:text-cream-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                        <i class="far fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-serif text-lg font-bold text-scarlet-900 dark:text-cream-50">Email Direct</h3>
-                        <p class="text-xs text-neutral-500 dark:text-cream-200/70 mt-1">noorahelbarky@gmail.com</p>
-                    </div>
-                    <span class="text-xs font-semibold text-scarlet-700 dark:text-scarlet-200 flex items-center space-x-1">
-                        <span>Send Message</span>
-                        <i class="fas fa-arrow-right text-xs"></i>
-                    </span>
-                </a>
+                </object>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-cream-200 dark:bg-darkscarlet-950 border-t border-scarlet-700/10 dark:border-scarlet-800/30 py-8 transition-colors">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-            <p class="font-serif font-semibold text-scarlet-900 dark:text-cream-50">Noorah Elbarky</p>
-            <p class="text-xs text-neutral-600 dark:text-cream-200/70">Rutgers Business School • Marketing Student & Campus Leader</p>
-            <div class="flex justify-center space-x-6 text-scarlet-700 dark:text-cream-100 text-lg">
-                <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuU3rb6V2RHC8RvUW3ch%2BYw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin hover:opacity-80"></i></a>
-                <a href="https://www.instagram.com/noorahs_portfolio/#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram hover:opacity-80"></i></a>
-                <a href="mailto:noorahelbarky@gmail.com" aria-label="Email"><i class="far fa-envelope hover:opacity-80"></i></a>
+    <!-- Footer -->
+    <footer class="border-t border-scarlet-700/10 dark:border-scarlet-800/40 bg-cream-200/50 dark:bg-darkscarlet-950 py-8 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-neutral-600 dark:text-cream-300/70">
+                © 2026 Noorah Elbarky • Rutgers Business School Marketing Portfolio
+            </p>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-scarlet-800 dark:text-cream-200 hover:text-scarlet-600 transition-colors"><i class="fab fa-linkedin text-lg"></i></a>
+                <a href="#" class="text-scarlet-800 dark:text-cream-200 hover:text-scarlet-600 transition-colors"><i class="fas fa-envelope text-lg"></i></a>
             </div>
-            <p class="text-[10px] text-neutral-500 dark:text-cream-200/40">© Noorah Elbarky. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Interactive Navigation Scripts & Embedded File Data -->
     <script>
-        // Tab Navigation Controller
+        // Data URL for Headshot (embedded image data or local fallback)
+        const embeddedHeadshot = "headshot.jpg"; 
+
+        // Data URL for Resume (embedded PDF data or local fallback)
+        const embeddedResumePdf = "resume.pdf";
+
+        // Assign embedded file sources dynamically on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            const headshotImg = document.getElementById('headshot-img');
+            if (headshotImg) headshotImg.src = embeddedHeadshot;
+
+            const resumeObject = document.getElementById('resume-object');
+            if (resumeObject) resumeObject.data = embeddedResumePdf;
+
+            const openBtn = document.getElementById('resume-open-btn');
+            if (openBtn) openBtn.href = embeddedResumePdf;
+
+            const downloadBtn1 = document.getElementById('resume-download-btn-1');
+            if (downloadBtn1) downloadBtn1.href = embeddedResumePdf;
+
+            const downloadBtn2 = document.getElementById('resume-download-btn-2');
+            if (downloadBtn2) downloadBtn2.href = embeddedResumePdf;
+
+            const fallbackBtn = document.getElementById('resume-download-btn-fallback');
+            if (fallbackBtn) fallbackBtn.href = embeddedResumePdf;
+        });
+
         function showSection(sectionId) {
-            const sections = ['home', 'about', 'projects', 'resume', 'contact'];
-            
-            sections.forEach(sec => {
-                const element = document.getElementById(`section-${sec}`);
-                const navBtn = document.getElementById(`nav-${sec}`);
-                
-                if (sec === sectionId) {
-                    element.classList.remove('hidden');
-                    if (navBtn) navBtn.classList.add('active');
-                } else {
-                    element.classList.add('hidden');
-                    if (navBtn) navBtn.classList.remove('active');
+            const sections = ['home', 'resume'];
+            sections.forEach(id => {
+                const el = document.getElementById(`section-${id}`);
+                const nav = document.getElementById(`nav-${id}`);
+                if (el) {
+                    if (id === sectionId) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                }
+                if (nav) {
+                    if (id === sectionId) {
+                        nav.classList.add('active');
+                    } else {
+                        nav.classList.remove('active');
+                    }
                 }
             });
-
-            // Smooth scroll to top when changing section
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Mobile Navigation Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            if (menu) menu.classList.toggle('hidden');
         }
 
-        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', toggleMobileMenu);
 
-        // Dark Mode Theme Controller
+        // Dark mode toggle functionality
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
 
-        themeToggleBtn.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark');
-            if (isDark) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+        themeToggleBtn?.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.className = 'fas fa-sun text-lg';
             } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+                themeIcon.className = 'fas fa-moon text-lg';
             }
         });
     </script>
