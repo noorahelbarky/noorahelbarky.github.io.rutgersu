@@ -1,356 +1,430 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noorah Elbarky - Personal Website & Resume</title>
+    <title>Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display for Elegant Headings, Plus Jakarta Sans for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        scarlet: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            600: '#c5102e',
+                            700: '#a6192e',
+                            800: '#881326',
+                            900: '#701222',
+                            dark: '#580c19'
+                        },
+                        cream: {
+                            50: '#ffffff',
+                            100: '#fdfbf7',
+                            200: '#f7f3e8',
+                            300: '#eee7d3',
+                            400: '#e2d5b5',
+                            accent: '#fffdd0'
+                        },
+                        charcoal: '#222222'
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary-color: #8b0000; /* Deep Burgundy / Crimson Red */
-            --primary-hover: #a30000;
-            --accent-color: #c0392b;  /* Warm Red Accent */
-            --bg-cream: #fbf8f3;       /* Warm Soft Cream Background */
-            --card-cream: #f4eee3;     /* Darker Cream for Cards */
-            --text-dark: #2c221e;      /* Deep Charcoal / Warm Dark Text */
-            --text-muted: #6e5d54;     /* Soft Muted Brown-Gray */
-            --border-color: #e5d8c5;   /* Subtle Border Accent */
-            --accent-glow: rgba(139, 0, 0, 0.15);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
         body {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+            color: #222222;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        .bg-cream-gradient {
+            background: linear-gradient(135deg, #fdfbf7 0%, #f7f3e8 100%);
         }
-
-        /* Profile Header */
-        .profile-header {
-            background-color: var(--card-cream);
-            border-radius: 16px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.08);
-            border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+        .bg-scarlet-gradient {
+            background: linear-gradient(135deg, #a6192e 0%, #701222 100%);
         }
-
-        @media (min-width: 640px) {
-            .profile-header {
-                flex-direction: row;
-                text-align: left;
-                align-items: center;
-                gap: 2.5rem;
-            }
+        .card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(166, 25, 46, 0.08);
         }
-
-        .headshot-container {
-            position: relative;
-            width: 160px;
-            height: 160px;
-            flex-shrink: 0;
-            margin-bottom: 1.5rem;
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        @media (min-width: 640px) {
-            .headshot-container {
-                margin-bottom: 0;
-            }
-        }
-
-        .headshot {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 0 20px var(--accent-glow);
-            display: block; /* Ensures the image displays directly */
-        }
-
-        .profile-info h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.25rem;
-            color: var(--primary-color);
-        }
-
-        .profile-info h2 {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .contact-links {
-                justify-content: flex-start;
-            }
-        }
-
-        .contact-item {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: color 0.2s ease;
-        }
-
-        .contact-item:hover {
-            color: var(--primary-color);
-        }
-
-        /* Action Buttons */
-        .actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: #ffffff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.25);
-        }
-
-        /* Section Cards */
-        .section-card {
-            background-color: var(--card-cream);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            border: 1px solid var(--border-color);
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(139, 0, 0, 0.2);
-            padding-bottom: 0.5rem;
-        }
-
-        /* Experience Item */
-        .timeline-item {
-            margin-bottom: 1.75rem;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .role-header {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .role-header {
-                flex-direction: row;
-                align-items: baseline;
-            }
-        }
-
-        .role-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .company-name {
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        .role-dates {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .role-location {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .bullet-list {
-            list-style-type: disc;
-            list-style-position: inside;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .bullet-list li {
-            margin-bottom: 0.4rem;
-        }
-
-        /* Skills Tags */
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .tag {
-            background-color: #eae1d2;
-            color: var(--text-dark);
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .tag-highlight {
-            background-color: rgba(139, 0, 0, 0.1);
-            color: var(--primary-color);
-            border: 1px solid rgba(139, 0, 0, 0.3);
-            font-weight: 500;
-        }
-
-        /* Print styles for direct PDF export */
-        @media print {
-            body {
-                background-color: white;
-                color: black;
-            }
-            .section-card, .profile-header {
-                background-color: white;
-                box-shadow: none;
-                border: none;
-                padding: 0;
-                margin-bottom: 1.5rem;
-            }
-            .profile-info h1 {
-                color: black;
-            }
-            .section-title {
-                color: black;
-                border-bottom: 1px solid black;
-            }
-            .actions {
-                display: none;
-            }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -5px rgba(166, 25, 46, 0.15);
         }
     </style>
 </head>
-<body>
+<body class="bg-cream-100 text-charcoal antialiased flex flex-col min-h-screen">
 
-    <div class="container">
-        <!-- Profile Header -->
-        <header class="profile-header">
-            <div class="headshot-container">
-                <!-- Replace 'headshot.png' with your image file (e.g., 'headshot.jpg' or image URL) -->
-                <img src="headshot.png" alt="Noorah Elbarky" class="headshot">
-            </div>
-            <div class="profile-info">
-                <h1>Noorah Elbarky</h1>
-                <h2>Marketing & Supply Chain Student | Canva Ambassador</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">
-                    Passionate about creative works, digital design, and social impact outreach.
-                </p>
-                <div class="contact-links">
-                    <a href="tel:8036109441" class="contact-item">
-                        📞 (803) 610-9441
-                    </a>
-                    <a href="mailto:noorahelbarky@icloud.com" class="contact-item">
-                        ✉️ noorahelbarky@icloud.com
-                    </a>
-                    <span class="contact-item">
-                        📍 New Brunswick, NJ
-                    </span>
-                </div>
-            </div>
-        </header>
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-cream-100/90 backdrop-blur-md border-b border-cream-300 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading font-bold text-2xl text-scarlet-700 tracking-tight flex items-center gap-2">
+                <span class="w-9 h-9 rounded-full bg-scarlet-700 text-cream-100 flex items-center justify-center text-sm font-body font-bold shadow-sm">NE</span>
+                <span>Noorah Elbarky</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#about" class="text-charcoal hover:text-scarlet-700 transition-colors">About & Statement</a>
+                <a href="#skills" class="text-charcoal hover:text-scarlet-700 transition-colors">Skills</a>
+                <a href="#projects" class="text-charcoal hover:text-scarlet-700 transition-colors">Featured Projects</a>
+            </nav>
 
-        <!-- Actions -->
-        <div class="actions">
-            <button onclick="window.print()" class="btn">
-                📄 Print / Download PDF
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-cream-200 text-scarlet-700 hover:bg-scarlet-700 hover:text-cream-100 transition-all flex items-center justify-center text-lg border border-cream-300" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:noorahelbarky@gmail.com" class="px-5 py-2.5 rounded-full bg-scarlet-700 text-cream-100 font-semibold text-sm hover:bg-scarlet-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Contact Me</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-charcoal focus:outline-none p-2" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
             </button>
         </div>
 
-        <!-- Education -->
-        <section class="section-card">
-            <h3 class="section-title">Education</h3>
-            <div class="timeline-item">
-                <div class="role-header">
-                    <div>
-                        <div class="role-title">B.S. in Marketing and Supply Chain</div>
-                        <div class="company-name">Rutgers Business School, The State University of New Jersey</div>
-                    </div>
-                    <div class="role-dates">Expected May 2029</div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cream-200 border-b border-cream-300 px-6 py-4 transition-all">
+            <nav class="flex flex-col space-y-4 font-medium text-base">
+                <a href="#about" class="mobile-link text-charcoal hover:text-scarlet-700 transition-colors py-1">About & Statement</a>
+                <a href="#skills" class="mobile-link text-charcoal hover:text-scarlet-700 transition-colors py-1">Skills</a>
+                <a href="#projects" class="mobile-link text-charcoal hover:text-scarlet-700 transition-colors py-1">Featured Projects</a>
+                <div class="pt-2 flex flex-col gap-2">
+                    <a href="mailto:noorahelbarky@gmail.com" class="mobile-link inline-flex items-center justify-center gap-2 text-center px-5 py-2.5 rounded-full bg-scarlet-700 text-cream-100 font-semibold text-sm hover:bg-scarlet-800 transition-all">
+                        <i class="fa-regular fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" rel="noopener noreferrer" class="mobile-link inline-flex items-center justify-center gap-2 text-center px-5 py-2.5 rounded-full border border-scarlet-700 text-scarlet-700 font-semibold text-sm hover:bg-scarlet-50 transition-all">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
                 </div>
-                <div class="role-location">New Brunswick, New Jersey</div>
-                <ul class="bullet-list">
-                    <li>GPA: 3.5 / 4.0 | Dean's List (2025–2026)</li>
-                    <li><strong>Activities:</strong> Canvassador (Canva Ambassador), North African Student Association Community Outreach Chair</li>
-                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Section 1: Hero & Personal Statement -->
+        <section id="about" class="py-16 md:py-24 px-6 relative overflow-hidden bg-cream-gradient">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-scarlet-50 border border-scarlet-100 text-scarlet-700 text-xs font-semibold uppercase tracking-wider mb-8">
+                    <span class="w-2 h-2 rounded-full bg-scarlet-600 animate-pulse"></span>
+                    Noorah Elbarky • Student Leader & Content Specialist
+                </div>
+
+                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-charcoal tracking-tight leading-tight mb-8">
+                    Empowering Communities Through <span class="text-scarlet-700 italic">Strategic Communication</span> & <span class="text-scarlet-700">Advocacy</span>
+                </h1>
+
+                <!-- Personal Statement Banner -->
+                <div class="bg-white/90 backdrop-blur-sm p-8 md:p-10 rounded-2xl border-l-4 border-scarlet-700 card-shadow text-left mb-10">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-scarlet-700 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-quote-left"></i> Personal Statement
+                    </h2>
+                    <p class="font-heading text-xl md:text-2xl text-charcoal font-semibold leading-relaxed">
+                        "I am a driven student leader and strategic communicator dedicated to driving impact through community outreach, cultural advocacy, and research-led content development across diverse organizational landscapes."
+                    </p>
+                </div>
+
+                <!-- Contact & Social Quick Links -->
+                <div class="flex flex-wrap justify-center items-center gap-4 text-sm font-semibold">
+                    <a href="mailto:noorahelbarky@gmail.com" class="px-5 py-3 rounded-xl bg-white border border-cream-300 hover:border-scarlet-700 text-charcoal hover:text-scarlet-700 shadow-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-scarlet-700"></i>
+                        <span>noorahelbarky@gmail.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-white border border-cream-300 hover:border-scarlet-700 text-charcoal hover:text-scarlet-700 shadow-sm transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin text-scarlet-700"></i>
+                        <span>LinkedIn Profile</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400"></i>
+                    </a>
+                </div>
+
             </div>
         </section>
 
-        <!-- Experience -->
-        <section class="section-card">
-            <h3 class="section-title">Leadership & Experience</h3>
+        <!-- Section 2: Skills -->
+        <section id="skills" class="py-16 md:py-20 px-6 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-scarlet-700 mb-2">Core Competencies</h2>
+                    <p class="font-heading text-3xl md:text-4xl font-bold text-charcoal">Professional & Technical Skills</p>
+                    <div class="w-16 h-1 bg-scarlet-700 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Skills Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Skill Card 1 -->
+                    <div class="p-6 rounded-xl bg-cream-100 border border-cream-300 card-hover flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-scarlet-700 text-cream-100 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-charcoal mb-1">Community Outreach</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Building inclusive partnerships and organizing engagement events across diverse student cohorts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 2 -->
+                    <div class="p-6 rounded-xl bg-cream-100 border border-cream-300 card-hover flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-scarlet-700 text-cream-100 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-charcoal mb-1">Strategic Communication</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Crafting targeted campaigns and impactful messaging tailored to diverse audiences.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 3 -->
+                    <div class="p-6 rounded-xl bg-cream-100 border border-cream-300 card-hover flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-scarlet-700 text-cream-100 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-charcoal mb-1">Content Development</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Designing digital visual assets, educational resources, and narrative-driven collateral.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 4 -->
+                    <div class="p-6 rounded-xl bg-cream-100 border border-cream-300 card-hover flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-scarlet-700 text-cream-100 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fa-solid fa-campground"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-charcoal mb-1">Campus Canvassing</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Leading grassroots peer-to-peer engagement and campus initiatives as a brand ambassador.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 5 -->
+                    <div class="p-6 rounded-xl bg-cream-100 border border-cream-300 card-hover flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-scarlet-700 text-cream-100 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-charcoal mb-1">Leadership & Advocacy</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Leading executive student boards, advocating for cultural representation, and fostering community.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skill Card 6 -->
+                    <div class="p-6 rounded-xl bg-cream-100 border border-cream-300 card-hover flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-scarlet-700 text-cream-100 flex items-center justify-center flex-shrink-0 text-xl">
+                            <i class="fa-solid fa-magnifying-glass font-bold"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-charcoal mb-1">Research & Engagement</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Synthesizing research data into accessible toolkits and actionable community resources.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Skill Badges Bar -->
+                <div class="mt-12 p-6 rounded-2xl bg-scarlet-50 border border-scarlet-100 text-center">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-scarlet-700 mb-4">Tools & Expertise</h4>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="px-3 py-1.5 rounded-full bg-white text-xs font-semibold text-charcoal border border-scarlet-100 shadow-sm">Canva Graphic Design</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white text-xs font-semibold text-charcoal border border-scarlet-100 shadow-sm">Social Media Strategy</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white text-xs font-semibold text-charcoal border border-scarlet-100 shadow-sm">Event Coordination</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white text-xs font-semibold text-charcoal border border-scarlet-100 shadow-sm">Public Speaking</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white text-xs font-semibold text-charcoal border border-scarlet-100 shadow-sm">Research Synthesis</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white text-xs font-semibold text-charcoal border border-scarlet-100 shadow-sm">Cross-Cultural Communication</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Projects -->
+        <section id="projects" class="py-16 md:py-24 px-6 bg-cream-gradient">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-scarlet-700 mb-2">Portfolio Showcase</h2>
+                    <p class="font-heading text-3xl md:text-4xl font-bold text-charcoal">Featured Leadership & Work Projects</p>
+                    <div class="w-16 h-1 bg-scarlet-700 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-cream-300 card-shadow card-hover flex flex-col h-full">
+                        <div class="bg-scarlet-gradient p-6 text-cream-100 relative">
+                            <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium mb-3">Campus Leadership</span>
+                            <h3 class="font-heading text-2xl font-bold text-white mb-1">Campus Canvassador</h3>
+                            <p class="text-xs text-cream-300 uppercase tracking-wider font-semibold">Student Outreach & Engagement</p>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                                    Led peer-to-peer engagement and promotional initiatives across campus. Developed creative outreach strategies to boost student awareness, participation, and active involvement.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="pt-4 border-t border-cream-200 mb-6 flex items-center gap-2 text-xs font-medium text-scarlet-700">
+                                    <i class="fa-solid fa-tag"></i> Campaign Design • Campus Advocacy
+                                </div>
+                                <a href="https://canva.link/i8vblyokhaht4i4" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-scarlet-700 text-cream-100 font-semibold text-sm hover:bg-scarlet-800 transition-colors shadow-sm">
+                                    <span>View Canva Presentation</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-cream-300 card-shadow card-hover flex flex-col h-full">
+                        <div class="bg-scarlet-gradient p-6 text-cream-100 relative">
+                            <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium mb-3">Cultural Student Org</span>
+                            <h3 class="font-heading text-2xl font-bold text-white mb-1">NASA Outreach Chair</h3>
+                            <p class="text-xs text-cream-300 uppercase tracking-wider font-semibold">North African Student Association</p>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                                    Organized community outreach programs, cultural celebration events, and advocacy initiatives. Fostered strong connections among diverse student cohorts and external community partners.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="pt-4 border-t border-cream-200 mb-6 flex items-center gap-2 text-xs font-medium text-scarlet-700">
+                                    <i class="fa-solid fa-tag"></i> Event Planning • Community Building
+                                </div>
+                                <a href="https://canva.link/3ikhcys36me6a1c" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-scarlet-700 text-cream-100 font-semibold text-sm hover:bg-scarlet-800 transition-colors shadow-sm">
+                                    <span>View Canva Presentation</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden border border-cream-300 card-shadow card-hover flex flex-col h-full">
+                        <div class="bg-scarlet-gradient p-6 text-cream-100 relative">
+                            <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium mb-3">Research & Engagement</span>
+                            <h3 class="font-heading text-2xl font-bold text-white mb-1">Content Coordinator</h3>
+                            <p class="text-xs text-cream-300 uppercase tracking-wider font-semibold">Asian American Institute (AAIRE)</p>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                                    Coordinated research-driven content creation strategies, educational toolkits, and public communication campaigns to translate academic research into actionable community knowledge.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="pt-4 border-t border-cream-200 mb-6 flex items-center gap-2 text-xs font-medium text-scarlet-700">
+                                    <i class="fa-solid fa-tag"></i> Strategic Content • Research Toolkits
+                                </div>
+                                <a href="https://canva.link/ituzj8vmldfvfid" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-scarlet-700 text-cream-100 font-semibold text-sm hover:bg-scarlet-800 transition-colors shadow-sm">
+                                    <span>View Canva Presentation</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-20 px-6 bg-scarlet-gradient text-cream-100">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Let's Connect & Collaborate</h2>
+                <p class="text-cream-200 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+                    Feel free to reach out for inquiries regarding community outreach, leadership, or content development opportunities.
+                </p>
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <a href="mailto:noorahelbarky@gmail.com" class="px-6 py-3.5 rounded-full bg-cream-100 text-scarlet-800 font-bold text-sm hover:bg-cream-200 transition-colors shadow-md flex items-center gap-2">
+                        <i class="fa-regular fa-envelope text-scarlet-700"></i>
+                        <span>noorahelbarky@gmail.com</span>
+                    </a>
+                    <button onclick="copyEmail()" id="copyBtn" class="px-5 py-3.5 rounded-full bg-scarlet-800 text-cream-100 font-semibold text-sm hover:bg-scarlet-900 border border-scarlet-600 transition-colors flex items-center gap-2">
+                        <i class="fa-regular fa-copy"></i>
+                        <span id="copyText">Copy Email</span>
+                    </button>
+                    <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-full bg-white/10 backdrop-blur-sm text-white font-bold text-sm hover:bg-white/20 transition-colors border border-white/20 flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream-300 py-8 px-6 text-center text-sm border-t border-scarlet-900">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; <span id="year"></span> Noorah Elbarky. All rights reserved.</p>
+            <div class="flex items-center gap-6 text-base">
+                <a href="mailto:noorahelbarky@gmail.com" class="text-cream-300 hover:text-white transition-colors" title="Email Noorah">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" rel="noopener noreferrer" class="text-cream-300 hover:text-white transition-colors" title="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Set year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email to Clipboard Function
+        function copyEmail() {
+            const email = 'noorahelbarky@gmail.com';
             
-            <div class="timeline-item">
-                <div class="role-header">
-                    <div>
-                        <div class="role-title">Canvassador (Student Ambassador)</div>
-                        <div class="company-name">Canva</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+            // Fallback copy execution for iFrame safety
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
 
+            const copyText = document.getElementById('copyText');
+            copyText.textContent = 'Copied!';
+            setTimeout(() => {
+                copyText.textContent = 'Copy Email';
+            }, 2500);
+        }
+    </script>
 </body>
 </html>
