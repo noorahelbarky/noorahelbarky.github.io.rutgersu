@@ -12,10 +12,12 @@
             theme: {
                 extend: {
                     colors: {
-                        scarlet: '#CC0033',
+                        scarlet: '#CC0033',          /* Rutgers Scarlet Accent */
                         scarletHover: '#990026',
-                        darkBg: '#0F172A',
-                        darkCard: '#1E293B'
+                        warmBg: '#1C1917',           /* Rich Warm Espresso (Dark Mode) */
+                        warmCard: '#292524',         /* Slightly Lighter Espresso Card */
+                        amberAccent: '#F59E0B',      /* Sunset Amber */
+                        sunsetOrange: '#EA580C'      /* Warm Creative Orange */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif']
@@ -31,7 +33,7 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .gradient-text {
-            background: linear-gradient(135deg, #CC0033 0%, #FF4D6D 100%);
+            background: linear-gradient(135deg, #CC0033 0%, #F59E0B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -39,10 +41,10 @@
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-darkBg text-gray-800 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-amber-50/45 dark:bg-warmBg text-stone-800 dark:text-stone-100 transition-colors duration-300 min-h-screen flex flex-col">
 
     <!-- NAVIGATION HEADER -->
-    <header class="sticky top-0 z-40 bg-white/80 dark:bg-darkBg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-warmBg/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <span class="w-9 h-9 rounded-full bg-scarlet text-white font-bold flex items-center justify-center text-lg shadow-md">NE</span>
@@ -50,11 +52,11 @@
             </div>
             <div class="flex items-center space-x-4">
                 <!-- Theme Toggle Button -->
-                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-full bg-gray-100 dark:bg-darkCard text-gray-600 dark:text-gray-300 hover:text-scarlet dark:hover:text-scarlet transition-colors">
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-full bg-stone-100 dark:bg-warmCard text-stone-600 dark:text-stone-300 hover:text-amberAccent transition-colors">
                     <i class="fas font-solid fa-moon dark:hidden"></i>
                     <i class="fas font-solid fa-sun hidden dark:inline"></i>
                 </button>
-                <a href="mailto:noorahelbarky@icloud.com" class="bg-scarlet hover:bg-scarletHover text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm">
+                <a href="#contact-section" class="bg-amberAccent hover:bg-amber-600 text-stone-950 px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm">
                     Contact Me
                 </a>
             </div>
@@ -63,63 +65,74 @@
 
     <!-- HERO / INTRO BANNER -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-white dark:bg-darkCard p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl">
-            <div class="space-y-4 max-w-2xl text-center md:text-left">
-                <div class="inline-block bg-scarlet/10 text-scarlet font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-                    Road to Silicon Valley Cohort Applicant
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-white dark:bg-warmCard p-8 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-xl">
+            
+            <!-- Bio & Info -->
+            <div class="space-y-4 max-w-xl text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-scarlet/10 text-scarlet font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider border border-scarlet/20">
+                    <span class="w-2 h-2 rounded-full bg-scarlet animate-pulse"></span> Rutgers BS • Road to Silicon Valley Applicant
                 </div>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
                     Hi, I'm <span class="gradient-text">Noorah Elbarky</span>
                 </h1>
-                <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg font-medium leading-relaxed">
-                    Marketing & Supply Chain Student @ <strong class="text-gray-900 dark:text-white">Rutgers Business School</strong> | Founder & Creative Developer
+                <p class="text-stone-600 dark:text-stone-300 text-base sm:text-lg font-medium leading-relaxed">
+                    Design Strategist & Marketing Scholar @ <strong class="text-stone-900 dark:text-white">Rutgers Business School</strong> | Entrepreneurial Designer
                 </p>
-                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                    Bridging brand strategy, digital product creation, and community scaling through iterative 2D flat design, user validation, and visual storytelling.
+                <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">
+                    Fusing visual architecture, innovative brand systems, and human-centered design principles with agile market validation to build scalable ventures.
                 </p>
                 
                 <!-- Quick Social Links -->
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-                    <a href="https://linkedin.com/in/noorahelbarky" target="_blank" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
-                        <i class="fab fa-linkedin text-base"></i> LinkedIn
+                    <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" class="flex items-center gap-2 bg-stone-100 dark:bg-stone-800 hover:bg-amberAccent hover:text-stone-950 dark:hover:bg-amberAccent dark:hover:text-stone-950 text-stone-700 dark:text-stone-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fab fa-linkedin text-base text-blue-500"></i> LinkedIn
                     </a>
-                    <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
-                        <i class="fab fa-instagram text-base"></i> @noorahs_portfolio
+                    <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="flex items-center gap-2 bg-stone-100 dark:bg-stone-800 hover:bg-amberAccent hover:text-stone-950 dark:hover:bg-amberAccent dark:hover:text-stone-950 text-stone-700 dark:text-stone-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fab fa-instagram text-base text-pink-500"></i> @noorahs_portfolio
                     </a>
-                    <a href="https://github.com" target="_blank" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                    <a href="https://github.com" target="_blank" class="flex items-center gap-2 bg-stone-100 dark:bg-stone-800 hover:bg-amberAccent hover:text-stone-950 dark:hover:bg-amberAccent dark:hover:text-stone-950 text-stone-700 dark:text-stone-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
                         <i class="fab fa-github text-base"></i> GitHub
                     </a>
-                    <a href="mailto:noorahelbarky@icloud.com" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
-                        <i class="fas fa-envelope text-base"></i> Email
+                    <a href="mailto:noorahelbarky@gmail.com" class="flex items-center gap-2 bg-stone-100 dark:bg-stone-800 hover:bg-amberAccent hover:text-stone-950 dark:hover:bg-amberAccent dark:hover:text-stone-950 text-stone-700 dark:text-stone-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fas fa-envelope text-base text-scarlet"></i> noorahelbarky@gmail.com
                     </a>
                 </div>
             </div>
 
-            <!-- Profile Badge / Callout -->
-            <div class="w-full md:w-auto flex flex-col items-center">
-                <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-tr from-scarlet to-amber-500 shadow-2xl">
-                    <div class="w-full h-full rounded-full bg-gray-200 dark:bg-gray-800 flex flex-col items-center justify-center text-center p-4">
-                        <i class="fas fa-rocket text-3xl sm:text-4xl text-scarlet mb-2"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200">Growth Engine</span>
-                        <span class="text-lg font-extrabold text-scarlet">236K+</span>
-                        <span class="text-[10px] text-gray-500 dark:text-gray-400">Digital Engagements</span>
+            <!-- Headshot & Metrics Column -->
+            <div class="flex flex-col sm:flex-row md:flex-col items-center gap-6 shrink-0">
+                <!-- Headshot Container -->
+                <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-2xl p-1 bg-gradient-to-tr from-scarlet via-amberAccent to-sunsetOrange shadow-xl overflow-hidden group">
+                    <div class="w-full h-full rounded-xl bg-stone-200 dark:bg-stone-900 overflow-hidden relative flex items-center justify-center">
+                        <img src="assets/headshot.png" alt="Noorah Elbarky Headshot" class="w-full h-full object-cover" onerror="this.style.display='none'; document.getElementById('fallback-icon').style.display='flex';">
+                        <div id="fallback-icon" style="display:none;" class="absolute inset-0 flex flex-col items-center justify-center text-stone-400 text-center p-2">
+                            <i class="fas fa-user text-3xl mb-1 text-amberAccent"></i>
+                            <span class="text-[9px] uppercase font-bold tracking-wider">Add Headshot</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Growth Engine Badge -->
+                <div class="bg-stone-50 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 px-4 py-2.5 rounded-xl text-center shadow-sm">
+                    <p class="text-[10px] text-stone-500 uppercase tracking-wider font-bold">Creative Reach</p>
+                    <p class="text-lg font-black text-scarlet">236,000+</p>
+                </div>
             </div>
+
         </div>
     </section>
 
     <!-- TAB NAVIGATION BAR -->
     <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-8">
-        <div class="flex border-b border-gray-200 dark:border-gray-800 space-x-2 sm:space-x-8 overflow-x-auto pb-1 scrollbar-none">
+        <div class="flex border-b border-stone-200 dark:border-stone-800 space-x-2 sm:space-x-8 overflow-x-auto pb-1 scrollbar-none">
             <button onclick="switchTab('tab1')" id="tab1-btn" class="tab-btn active py-3 px-4 border-b-2 font-bold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-scarlet border-scarlet">
-                <i class="fas fa-border-all"></i> Personal Projects
+                <i class="fas fa-palette"></i> Design Projects
             </button>
-            <button onclick="switchTab('tab2')" id="tab2-btn" class="tab-btn py-3 px-4 border-b-2 font-semibold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-800 dark:hover:text-gray-200">
-                <i class="fas fa-briefcase"></i> AAIRE Experience
+            <button onclick="switchTab('tab2')" id="tab2-btn" class="tab-btn py-3 px-4 border-b-2 font-semibold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-stone-500 dark:text-stone-400 border-transparent hover:text-stone-800 dark:hover:text-stone-200">
+                <i class="fas fa-vector-square"></i> AAIRE Experience
             </button>
-            <button onclick="switchTab('tab3')" id="tab3-btn" class="tab-btn py-3 px-4 border-b-2 font-semibold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-800 dark:hover:text-gray-200">
-                <i class="fas fa-chart-line"></i> Leadership & Impact
+            <button onclick="switchTab('tab3')" id="tab3-btn" class="tab-btn py-3 px-4 border-b-2 font-semibold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-stone-500 dark:text-stone-400 border-transparent hover:text-stone-800 dark:hover:text-stone-200">
+                <i class="fas fa-compass"></i> Vision & Mission
             </button>
         </div>
     </nav>
@@ -127,283 +140,251 @@
     <!-- MAIN CONTENT AREA -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow mb-16">
 
-        <!-- TAB 1: PERSONAL PROJECTS (INSTAGRAM SCROLLABLE FEED STYLE) -->
+        <!-- TAB 1: DESIGN PROJECTS (INSTAGRAM SCROLLABLE FEED STYLE) -->
         <div id="tab1" class="tab-content block space-y-8 max-w-2xl mx-auto">
             
             <!-- Feed Intro Header -->
-            <div class="flex items-center justify-between bg-white dark:bg-darkCard p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+            <div class="flex items-center justify-between bg-white dark:bg-warmCard p-4 rounded-xl border border-stone-200 dark:border-stone-800 shadow-sm">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 p-0.5 flex items-center justify-center text-white font-bold text-xs">
-                        <div class="w-full h-full bg-white dark:bg-darkCard rounded-full flex items-center justify-center text-scarlet">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-scarlet via-amberAccent to-sunsetOrange p-0.5 flex items-center justify-center text-white font-bold text-xs">
+                        <div class="w-full h-full bg-white dark:bg-warmCard rounded-full flex items-center justify-center text-scarlet font-black">
                             NE
                         </div>
                     </div>
                     <div>
-                        <h2 class="text-sm font-bold text-gray-900 dark:text-white">noorahs_portfolio</h2>
-                        <p class="text-[11px] text-gray-500">Instagram Design & Venture Feed</p>
+                        <h2 class="text-sm font-bold text-stone-900 dark:text-white">noorahs_portfolio</h2>
+                        <p class="text-[11px] text-stone-500">Visual Systems & Prototype Feed</p>
                     </div>
                 </div>
-                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold hover:opacity-90 transition-opacity shadow-sm">
+                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-amberAccent to-sunsetOrange text-stone-950 px-3.5 py-1.5 rounded-lg text-xs font-bold hover:opacity-90 transition-opacity shadow-sm">
                     <i class="fab fa-instagram"></i> Follow on IG
                 </a>
             </div>
 
-            <!-- ========================================== -->
-            <!-- INSTAGRAM POST 1                           -->
-            <!-- ========================================== -->
-            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
-                <!-- Post Header -->
-                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+            <!-- INSTAGRAM POST 1 -->
+            <article class="bg-white dark:bg-warmCard rounded-xl border border-stone-200 dark:border-stone-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-stone-100 dark:border-stone-800/60">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
-                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                        <span class="text-xs font-bold text-stone-900 dark:text-white">noorahs_portfolio</span>
                     </div>
-                    <span class="text-xs text-gray-400 font-medium">Rutgers, NJ</span>
+                    <span class="text-xs text-stone-400 font-medium">Visual Architecture</span>
                 </div>
-                <!-- Post Image (Replace src with your image or asset path) -->
-                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="Post 1" class="w-full h-full object-cover">
+                <div class="aspect-square w-full bg-stone-100 dark:bg-stone-900 overflow-hidden relative">
+                    <img src="assets/design1.png" alt="Post 1" class="w-full h-full object-cover">
                 </div>
-                <!-- Post Actions Bar -->
                 <div class="px-4 pt-3 pb-1 flex items-center justify-between">
                     <div class="flex items-center space-x-4 text-xl">
-                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                        <button class="text-scarlet hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
                     </div>
-                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                    <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
                 </div>
-                <!-- Likes Count -->
-                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
-                    142 likes
-                </div>
-                <!-- Caption Area -->
+                <div class="px-4 py-1 text-xs font-bold text-stone-900 dark:text-white">142 likes</div>
                 <div class="px-4 pb-4 space-y-1">
-                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
-                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
-                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
-                        Exploring minimalist 2D flat design systems and typography hierarchy. Testing how clean visual structures improve user brand retention! 💡✨ #Design #Branding #Rutgers
+                    <p class="text-xs text-stone-800 dark:text-stone-200 leading-relaxed">
+                        <strong class="font-bold text-stone-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        Crafting minimalist 2D design layouts and innovative visual hierarchies. Testing how seamless brand aesthetics elevate user resonance and retention. 🎨✨ #VisualDesign #BrandArchitecture #DesignSystem
                     </p>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">2 days ago</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-wide pt-1">2 days ago</p>
                 </div>
             </article>
 
-            <!-- ========================================== -->
-            <!-- INSTAGRAM POST 2                           -->
-            <!-- ========================================== -->
-            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
-                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+            <!-- INSTAGRAM POST 2 -->
+            <article class="bg-white dark:bg-warmCard rounded-xl border border-stone-200 dark:border-stone-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-stone-100 dark:border-stone-800/60">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
-                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                        <span class="text-xs font-bold text-stone-900 dark:text-white">noorahs_portfolio</span>
                     </div>
-                    <span class="text-xs text-gray-400 font-medium">New Brunswick</span>
+                    <span class="text-xs text-stone-400 font-medium">User Testing & Feedback</span>
                 </div>
-                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Post 2" class="w-full h-full object-cover">
+                <div class="aspect-square w-full bg-stone-100 dark:bg-stone-900 overflow-hidden relative">
+                    <img src="assets/design2.png" alt="Post 2" class="w-full h-full object-cover">
                 </div>
                 <div class="px-4 pt-3 pb-1 flex items-center justify-between">
                     <div class="flex items-center space-x-4 text-xl">
-                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                        <button class="text-scarlet hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
                     </div>
-                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                    <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
                 </div>
-                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
-                    198 likes • 70+ responses
-                </div>
+                <div class="px-4 py-1 text-xs font-bold text-stone-900 dark:text-white">198 likes • 70+ user insights</div>
                 <div class="px-4 pb-4 space-y-1">
-                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
-                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
-                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
-                        Deploying live validation forms to test market response! Captured over 70+ user feedback responses to iterate on product prototypes. Fast learning cycles in action 🚀📈
+                    <p class="text-xs text-stone-800 dark:text-stone-200 leading-relaxed">
+                        <strong class="font-bold text-stone-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        Iterating on brand prototypes based on real user feedback! Analyzed 70+ validation inputs to refine design interface elements and improve visual narrative flow. 💡📐
                     </p>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">5 days ago</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-wide pt-1">5 days ago</p>
                 </div>
             </article>
 
-            <!-- ========================================== -->
-            <!-- INSTAGRAM POST 3                           -->
-            <!-- ========================================== -->
-            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
-                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+            <!-- INSTAGRAM POST 3 -->
+            <article class="bg-white dark:bg-warmCard rounded-xl border border-stone-200 dark:border-stone-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-stone-100 dark:border-stone-800/60">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
-                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                        <span class="text-xs font-bold text-stone-900 dark:text-white">noorahs_portfolio</span>
                     </div>
-                    <span class="text-xs text-gray-400 font-medium">Canvassador</span>
+                    <span class="text-xs text-stone-400 font-medium">Design Tech Leadership</span>
                 </div>
-                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Post 3" class="w-full h-full object-cover">
+                <div class="aspect-square w-full bg-stone-100 dark:bg-stone-900 overflow-hidden relative">
+                    <img src="assets/design3.png" alt="Post 3" class="w-full h-full object-cover">
                 </div>
                 <div class="px-4 pt-3 pb-1 flex items-center justify-between">
                     <div class="flex items-center space-x-4 text-xl">
-                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                        <button class="text-scarlet hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
                     </div>
-                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                    <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
                 </div>
-                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
-                    230 likes
-                </div>
+                <div class="px-4 py-1 text-xs font-bold text-stone-900 dark:text-white">230 likes</div>
                 <div class="px-4 pb-4 space-y-1">
-                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
-                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
-                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
-                        Prototyping community engagement layouts. Merging marketing analytics with human-centered visual design to scale digital adoption. 🎨📊
+                    <p class="text-xs text-stone-800 dark:text-stone-200 leading-relaxed">
+                        <strong class="font-bold text-stone-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        Leveraging innovative design tools as a Canva Campus Ambassador to build engaging presentation concepts that translate complex strategic frameworks into clean visual stories. 🖌️🚀
                     </p>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">1 week ago</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-wide pt-1">1 week ago</p>
                 </div>
             </article>
 
-            <!-- ========================================== -->
-            <!-- INSTAGRAM POST 4                           -->
-            <!-- ========================================== -->
-            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
-                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+            <!-- INSTAGRAM POST 4 -->
+            <article class="bg-white dark:bg-warmCard rounded-xl border border-stone-200 dark:border-stone-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-stone-100 dark:border-stone-800/60">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
-                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                        <span class="text-xs font-bold text-stone-900 dark:text-white">noorahs_portfolio</span>
                     </div>
-                    <span class="text-xs text-gray-400 font-medium">NASA Impact</span>
+                    <span class="text-xs text-stone-400 font-medium">Brand Identity System</span>
                 </div>
-                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1542744094-3a31216994c4?auto=format&fit=crop&w=800&q=80" alt="Post 4" class="w-full h-full object-cover">
+                <div class="aspect-square w-full bg-stone-100 dark:bg-stone-900 overflow-hidden relative">
+                    <img src="assets/design4.png" alt="Post 4" class="w-full h-full object-cover">
                 </div>
                 <div class="px-4 pt-3 pb-1 flex items-center justify-between">
                     <div class="flex items-center space-x-4 text-xl">
-                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                        <button class="text-scarlet hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
                     </div>
-                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                    <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
                 </div>
-                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
-                    310 likes
-                </div>
+                <div class="px-4 py-1 text-xs font-bold text-stone-900 dark:text-white">310 likes</div>
                 <div class="px-4 pb-4 space-y-1">
-                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
-                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
-                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
-                        Behind the scenes of scaling digital outreach to 236K+ total engagements! Visual storytelling makes all the difference when building a community from scratch. 🚀
+                    <p class="text-xs text-stone-800 dark:text-stone-200 leading-relaxed">
+                        <strong class="font-bold text-stone-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        Building the visual identity for NASA from 0 to 1! Thoughtfully designed graphics and strategic branding generated over 236K+ organic engagements across campus. 🌟🎨
                     </p>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">2 weeks ago</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-wide pt-1">2 weeks ago</p>
                 </div>
             </article>
 
-            <!-- ========================================== -->
-            <!-- INSTAGRAM POST 5                           -->
-            <!-- ========================================== -->
-            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
-                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+            <!-- INSTAGRAM POST 5 -->
+            <article class="bg-white dark:bg-warmCard rounded-xl border border-stone-200 dark:border-stone-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-stone-100 dark:border-stone-800/60">
                     <div class="flex items-center space-x-2.5">
                         <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
-                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                        <span class="text-xs font-bold text-stone-900 dark:text-white">noorahs_portfolio</span>
                     </div>
-                    <span class="text-xs text-gray-400 font-medium">Studio Lab</span>
+                    <span class="text-xs text-stone-400 font-medium">Design Studio Lab</span>
                 </div>
-                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="Post 5" class="w-full h-full object-cover">
+                <div class="aspect-square w-full bg-stone-100 dark:bg-stone-900 overflow-hidden relative">
+                    <img src="assets/design5.png" alt="Post 5" class="w-full h-full object-cover">
                 </div>
                 <div class="px-4 pt-3 pb-1 flex items-center justify-between">
                     <div class="flex items-center space-x-4 text-xl">
-                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
-                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                        <button class="text-scarlet hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
                     </div>
-                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                    <button class="text-stone-600 dark:text-stone-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
                 </div>
-                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
-                    185 likes
-                </div>
+                <div class="px-4 py-1 text-xs font-bold text-stone-900 dark:text-white">185 likes</div>
                 <div class="px-4 pb-4 space-y-1">
-                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
-                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
-                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
-                        Experimenting with vector assets and layout configurations. Continuous learning and rapid upskilling are key to modern product design. 💻✨
+                    <p class="text-xs text-stone-800 dark:text-stone-200 leading-relaxed">
+                        <strong class="font-bold text-stone-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        Exploring new creative technologies and visual styling. Continuous design iteration is the core engine behind modern product creation. 💻📐
                     </p>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">3 weeks ago</p>
+                    <p class="text-[10px] text-stone-400 uppercase tracking-wide pt-1">3 weeks ago</p>
                 </div>
             </article>
 
             <!-- Instagram Feed Footer CTA -->
-            <div class="bg-gradient-to-r from-scarlet to-pink-600 rounded-2xl p-6 text-white text-center space-y-3 shadow-lg">
-                <h3 class="text-base font-bold">Want to see more live design flats?</h3>
-                <p class="text-xs text-white/90">Browse my entire active portfolio stream directly on Instagram.</p>
-                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="inline-block bg-white text-scarlet px-5 py-2.5 rounded-lg text-xs font-extrabold hover:bg-gray-100 transition-colors shadow-md">
+            <div class="bg-gradient-to-r from-scarlet via-amberAccent to-sunsetOrange rounded-2xl p-6 text-stone-950 text-center space-y-3 shadow-lg font-medium">
+                <h3 class="text-base font-bold text-white">Explore My Full Design Gallery</h3>
+                <p class="text-xs text-stone-100">Browse my entire creative catalog and visual design concepts on Instagram.</p>
+                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="inline-block bg-white text-stone-950 px-5 py-2.5 rounded-lg text-xs font-extrabold hover:bg-stone-100 transition-colors shadow-md">
                     <i class="fab fa-instagram mr-1"></i> Visit Instagram Profile
                 </a>
             </div>
         </div>
 
-        <!-- TAB 2: AAIRE EXPERIENCE -->
+        <!-- TAB 2: AAIRE EXPERIENCE (STRICTLY SCARLET RED THEME) -->
         <div id="tab2" class="tab-content hidden space-y-8">
-            <div class="bg-white dark:bg-darkCard p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-6">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-800 pb-6">
+            <div class="bg-white dark:bg-warmCard p-8 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200 dark:border-stone-800 pb-6">
                     <div>
                         <span class="text-xs font-bold text-scarlet tracking-wider uppercase">Institutional Experience</span>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">Asian American Institute for Research & Engagement (AAIRE)</h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Content Development Coordinator | Woodbury, NY (Long Island)</p>
+                        <h2 class="text-2xl font-bold text-stone-900 dark:text-white mt-1">Asian American Institute for Research & Engagement (AAIRE)</h2>
+                        <p class="text-sm text-stone-600 dark:text-stone-300 font-medium">Content Development Coordinator | Woodbury, NY (Long Island)</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <span class="text-xs bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-md font-semibold text-gray-600 dark:text-gray-300">Nov 2025 – Present</span>
-                        <a href="https://aaire.org" target="_blank" class="bg-scarlet/10 text-scarlet hover:bg-scarlet hover:text-white px-3 py-1.5 rounded-md text-xs font-bold transition-colors">
+                        <span class="text-xs bg-scarlet/10 text-scarlet px-3 py-1.5 rounded-md font-bold">Nov 2025 – Present</span>
+                        <a href="https://aaire.org" target="_blank" class="bg-scarlet text-white hover:bg-scarletHover px-3 py-1.5 rounded-md text-xs font-bold transition-colors">
                             Visit Site <i class="fas fa-external-link-alt text-[10px] ml-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Case Study Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-                    <div class="space-y-3 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200/60 dark:border-gray-700/50">
+                    <div class="space-y-3 bg-stone-50 dark:bg-stone-800/50 p-5 rounded-xl border border-scarlet/20">
                         <div class="w-10 h-10 rounded-lg bg-scarlet/10 text-scarlet flex items-center justify-center font-bold text-lg">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                            <i class="fas fa-pen-nib"></i>
                         </div>
-                        <h3 class="font-bold text-base text-gray-900 dark:text-white">Educational Design Products</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Spearhead the development of interactive digital presentations and instructional assets for schools and corporate partners using advanced design tech.
+                        <h3 class="font-bold text-base text-stone-900 dark:text-white">Visual & Instructional Design</h3>
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                            Architect interactive visual decks and design media tailored for educational programs, corporate partners, and institutional workshops.
                         </p>
                     </div>
 
-                    <div class="space-y-3 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200/60 dark:border-gray-700/50">
-                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-lg">
-                            <i class="fas fa-users"></i>
+                    <div class="space-y-3 bg-stone-50 dark:bg-stone-800/50 p-5 rounded-xl border border-scarlet/20">
+                        <div class="w-10 h-10 rounded-lg bg-scarlet/10 text-scarlet flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-sitemap"></i>
                         </div>
-                        <h3 class="font-bold text-base text-gray-900 dark:text-white">Communication Frameworks</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Partner cross-functionally to engineer message strategies focused on minority community empowerment, social impact, and high-retention corporate delivery.
+                        <h3 class="font-bold text-base text-stone-900 dark:text-white">Brand & Messaging Architecture</h3>
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                            Collaborate with leadership to design cohesive brand positioning strategies that empower marginalized communities through impactful media.
                         </p>
                     </div>
 
-                    <div class="space-y-3 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200/60 dark:border-gray-700/50">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-lg">
-                            <i class="fas fa-search-dollar"></i>
+                    <div class="space-y-3 bg-stone-50 dark:bg-stone-800/50 p-5 rounded-xl border border-scarlet/20">
+                        <div class="w-10 h-10 rounded-lg bg-scarlet/10 text-scarlet flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3 class="font-bold text-base text-gray-900 dark:text-white">Market & Social Research</h3>
-                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-                            Conduct secondary market research and consumer behavior analysis to shape high-impact, data-backed messaging frameworks for partner organizations.
+                        <h3 class="font-bold text-base text-stone-900 dark:text-white">Strategic Design Research</h3>
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                            Conduct secondary market analysis and consumer psychology research to inform data-driven visual asset creation.
                         </p>
                     </div>
                 </div>
 
-                <!-- Showcase Media Strip -->
                 <div class="pt-4">
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Institutional Output Examples</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-scarlet mb-3">Featured Design Outputs</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <div class="relative h-48 rounded-xl overflow-hidden border border-scarlet/30">
                             <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Presentation Design" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
-                                <span class="text-white text-xs font-bold">Corporate Advocacy Modules</span>
-                                <span class="text-gray-300 text-[10px]">Interactive Canva & digital design decks for corporate diversity programs.</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent p-4 flex flex-col justify-end">
+                                <span class="text-white text-xs font-bold">Corporate Visual Modules</span>
+                                <span class="text-stone-300 text-[10px]">Interactive Canva presentation systems designed for corporate diversity programs.</span>
                             </div>
                         </div>
-                        <div class="relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <div class="relative h-48 rounded-xl overflow-hidden border border-scarlet/30">
                             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
-                                <span class="text-white text-xs font-bold">Cross-Functional Strategy</span>
-                                <span class="text-gray-300 text-[10px]">Collaborative research sprints translated into visual presentations.</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent p-4 flex flex-col justify-end">
+                                <span class="text-white text-xs font-bold">Strategic Design Systems</span>
+                                <span class="text-stone-300 text-[10px]">Cross-functional brand frameworks translated into clean visual collateral.</span>
                             </div>
                         </div>
                     </div>
@@ -411,79 +392,135 @@
             </div>
         </div>
 
-        <!-- TAB 3: LEADERSHIP & IMPACT -->
+        <!-- TAB 3: VISION & MISSION (ENTREPRENEURIAL ASPIRATIONS) -->
         <div id="tab3" class="tab-content hidden space-y-8">
-            
-            <!-- NASA CASE STUDY -->
-            <div class="bg-white dark:bg-darkCard p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-6">
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-800 pb-6">
+            <div class="bg-white dark:bg-warmCard p-8 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-stone-200 dark:border-stone-800 pb-6">
                     <div>
-                        <span class="text-xs font-bold text-scarlet tracking-wider uppercase">Startup Venture & Community Case Study</span>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">North African Student Association (NASA)</h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Co-Founder & Community Outreach Chair | Rutgers New Brunswick</p>
+                        <span class="text-xs font-bold text-amberAccent tracking-wider uppercase">Entrepreneurial Journey & Vision</span>
+                        <h2 class="text-2xl font-bold text-stone-900 dark:text-white mt-1">My Vision & Entrepreneurial Mission</h2>
+                        <p class="text-sm text-stone-600 dark:text-stone-300 font-medium">Founder Mindset | Rutgers Business School Sophomore</p>
                     </div>
-                    <span class="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold text-xs px-3 py-1.5 rounded-full">
-                        Growth Case Study
+                    <span class="bg-scarlet/10 text-scarlet font-extrabold text-xs px-3.5 py-1.5 rounded-full border border-scarlet/20">
+                        Future Founder
                     </span>
                 </div>
 
-                <!-- Key Metrics Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
-                    <div class="bg-scarlet/5 dark:bg-scarlet/10 p-4 rounded-xl border border-scarlet/20">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-scarlet">236,000+</div>
-                        <div class="text-[11px] font-semibold text-gray-600 dark:text-gray-300 mt-1 uppercase tracking-wider">Instagram Engagements</div>
+                <!-- Mission Pillars -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-stone-50 dark:bg-stone-800/50 p-6 rounded-xl border border-stone-200/80 dark:border-stone-700/60 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-amberAccent/10 text-amberAccent flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Owning a Successful Business</h3>
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                            My core aspiration is to build and own a high-growth brand centered on thoughtful product design, innovative marketing, and consumer trust. I aim to turn creative concepts into viable, self-sustaining enterprises that deliver genuine value to customers.
+                        </p>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">200+</div>
-                        <div class="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider">Active Members</div>
-                    </div>
-                    <div class="col-span-2 sm:col-span-1 bg-gray-50 dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
-                        <div class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">0 → 1</div>
-                        <div class="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider">Built From Scratch</div>
+
+                    <div class="bg-stone-50 dark:bg-stone-800/50 p-6 rounded-xl border border-stone-200/80 dark:border-stone-700/60 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-scarlet/10 text-scarlet flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white">Translating Academic Theory to Venture Scale</h3>
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                            Every marketing concept, supply chain optimization framework, and economic model I study at Rutgers Business School serves as a stepping stone. I am actively applying these university insights in real-time to build business models, validate market fit, and master venture leadership.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Strategic Summary -->
-                <div class="space-y-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    <p>
-                        Co-founded and operationally scaled a brand-new cultural organization at Rutgers. Applied entrepreneurial launch principles by architecting a high-conversion digital growth engine through targeted content creation, brand identity systems, and 2D visual assets.
-                    </p>
+                <!-- Real-World Proof Case Study: NASA -->
+                <div class="pt-2">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-3">Building From 0 to 1: Proof of Concept</h4>
+                    <div class="bg-gradient-to-r from-scarlet/10 via-amberAccent/5 to-transparent p-6 rounded-xl border border-scarlet/20 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="font-bold text-stone-900 dark:text-white text-sm">North African Student Association (NASA)</h5>
+                            <span class="text-xs text-scarlet font-bold">236K+ Digital Engagements</span>
+                        </div>
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+                            Co-founding NASA was my first hands-on venture test. By architecting a distinct brand identity, running targeted social campaigns, and applying agile organizational strategy, we built a thriving community from scratch. This experience proved that combining structured design systems with disciplined strategy creates real, measurable growth.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- CANVA AMBASSADOR & SKILLS GRID -->
+            <!-- Skills & Toolkit Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Canva Ambassador -->
-                <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-4">
+                <div class="bg-white dark:bg-warmCard p-6 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-md space-y-4">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-xl">
-                            C
+                        <div class="w-10 h-10 rounded-lg bg-amberAccent/10 text-amberAccent flex items-center justify-center font-bold text-xl">
+                            <i class="fas fa-paint-brush"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-base text-gray-900 dark:text-white">Canva Campus Ambassador</h3>
-                            <p class="text-xs text-gray-500">Canvassador Program | Aug 2026 – Present</p>
+                            <h3 class="font-bold text-base text-stone-900 dark:text-white">Canva Campus Ambassador</h3>
+                            <p class="text-xs text-stone-500">Canvassador Program | Aug 2026 – Present</p>
                         </div>
                     </div>
-                    <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside">
-                        <li>Drive adoption of creative design tech across the campus ecosystem.</li>
-                        <li>Lead data-driven marketing campaigns scaling engagement metrics.</li>
-                        <li>Curate digital assets supporting strategic partnership initiatives.</li>
+                    <ul class="text-xs text-stone-600 dark:text-stone-300 space-y-2 list-disc list-inside">
+                        <li>Champion modern creative software and design thinking across campus.</li>
+                        <li>Execute data-driven visual marketing campaigns to scale platform adoption.</li>
+                        <li>Curate digital design kits supporting strategic organization partners.</li>
                     </ul>
                 </div>
 
-                <!-- Technical Stack & Tooling -->
-                <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-4">
-                    <h3 class="font-bold text-base text-gray-900 dark:text-white flex items-center gap-2">
-                        <i class="fas fa-tools text-scarlet"></i> Technical Toolkit & Competencies
+                <div class="bg-white dark:bg-warmCard p-6 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-base text-stone-900 dark:text-white flex items-center gap-2">
+                        <i class="fas fa-layer-group text-amberAccent"></i> Design & Entrepreneurial Toolkit
                     </h3>
                     <div class="flex flex-wrap gap-2 pt-1">
-                        <span class="bg-scarlet/10 text-scarlet text-xs font-bold px-3 py-1.5 rounded-lg">Canva (Advanced)</span>
-                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">2D Flat Prototyping</span>
-                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Social Media Analytics</span>
-                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Microsoft Excel</span>
-                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Entrepreneurial Execution</span>
-                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">GitHub & Web Hosting</span>
+                        <span class="bg-scarlet/10 text-scarlet text-xs font-bold px-3 py-1.5 rounded-lg border border-scarlet/20">Canva (Advanced)</span>
+                        <span class="bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold px-3 py-1.5 rounded-lg">2D Flat Prototyping</span>
+                        <span class="bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Brand Architecture</span>
+                        <span class="bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Market Validation</span>
+                        <span class="bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Entrepreneurial Strategy</span>
+                        <span class="bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Web Design & Hosting</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE CONTACT FORM SECTION -->
+            <div id="contact-section" class="bg-white dark:bg-warmCard p-8 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-md space-y-6 max-w-2xl mx-auto">
+                <div class="text-center space-y-2">
+                    <span class="text-xs font-bold text-amberAccent tracking-wider uppercase">Direct Messaging</span>
+                    <h3 class="text-2xl font-bold text-stone-900 dark:text-white">Let's Connect</h3>
+                    <p class="text-xs text-stone-500">
+                        Send a message directly to my inbox at <strong class="text-stone-700 dark:text-stone-300">noorahelbarky@gmail.com</strong> or connect via LinkedIn.
+                    </p>
+                </div>
+
+                <!-- Web3Forms Form -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                    <input type="hidden" name="subject" value="New Message from Your Digital Portfolio!">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-stone-600 dark:text-stone-400">Your Name</label>
+                            <input type="text" name="name" required placeholder="Jane Doe" class="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg px-4 py-2.5 text-xs text-stone-900 dark:text-white focus:outline-none focus:border-amberAccent transition-colors">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-semibold text-stone-600 dark:text-stone-400">Your Email</label>
+                            <input type="email" name="email" required placeholder="jane@example.com" class="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg px-4 py-2.5 text-xs text-stone-900 dark:text-white focus:outline-none focus:border-amberAccent transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs font-semibold text-stone-600 dark:text-stone-400">Message</label>
+                        <textarea name="message" rows="4" required placeholder="Hi Noorah, I loved your portfolio and wanted to chat about..." class="w-full bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg p-4 text-xs text-stone-900 dark:text-white focus:outline-none focus:border-amberAccent transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-scarlet via-amberAccent to-sunsetOrange text-stone-950 font-extrabold py-3 rounded-lg text-xs hover:opacity-95 transition-opacity shadow-md uppercase tracking-wider">
+                        Send Message <i class="fas fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+
+                <div class="flex flex-wrap justify-center gap-4 pt-2 border-t border-stone-100 dark:border-stone-800">
+                    <a href="https://www.linkedin.com/in/noorah-elbarky-93a8ab352/" target="_blank" class="flex items-center gap-2 text-xs font-bold text-blue-500 hover:underline">
+                        <i class="fab fa-linkedin text-base"></i> View LinkedIn Profile
+                    </a>
+                    <a href="mailto:noorahelbarky@gmail.com" class="flex items-center gap-2 text-xs font-bold text-scarlet hover:underline">
+                        <i class="fas fa-envelope text-base"></i> noorahelbarky@gmail.com
+                    </a>
                 </div>
             </div>
 
@@ -492,13 +529,12 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white dark:bg-darkCard border-t border-gray-200 dark:border-gray-800 py-6 text-center text-xs text-gray-500 mt-auto">
+    <footer class="bg-white dark:bg-warmCard border-t border-stone-200 dark:border-stone-800 py-6 text-center text-xs text-stone-500 mt-auto">
         <p>© 2026 Noorah Elbarky • Built for the Road to Silicon Valley Application</p>
     </footer>
 
     <!-- SCRIPT LOGIC -->
     <script>
-        // Tab Switching Logic
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.add('hidden');
@@ -506,18 +542,17 @@
             });
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('text-scarlet', 'border-scarlet');
-                btn.classList.add('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+                btn.classList.add('text-stone-500', 'dark:text-stone-400', 'border-transparent');
             });
             const activeContent = document.getElementById(tabId);
             activeContent.classList.remove('hidden');
             activeContent.classList.add('block');
 
             const activeBtn = document.getElementById(tabId + '-btn');
-            activeBtn.classList.remove('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+            activeBtn.classList.remove('text-stone-500', 'dark:text-stone-400', 'border-transparent');
             activeBtn.classList.add('text-scarlet', 'border-scarlet');
         }
 
-        // Theme Toggle Logic
         function toggleTheme() {
             const htmlEl = document.documentElement;
             if (htmlEl.classList.contains('dark')) {
