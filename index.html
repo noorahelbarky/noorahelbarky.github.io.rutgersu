@@ -1,223 +1,542 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noorah Elbarky | Digital Portfolio & Innovation Hub</title>
+    <title>Noorah Elbarky | Digital Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        scarlet: '#CC0033',
+                        scarletHover: '#990026',
+                        darkBg: '#0F172A',
+                        darkCard: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #CC0033 0%, #FF4D6D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-gray-50 dark:bg-darkBg text-gray-800 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col">
 
-    <!-- Header / Navigation -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
-        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-                <h1 class="text-2xl font-black tracking-tight text-red-900">NOORAH ELBARKY</h1>
-                <p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Marketing & Supply Chain • Rutgers University</p>
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-darkBg/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-9 h-9 rounded-full bg-scarlet text-white font-bold flex items-center justify-center text-lg shadow-md">NE</span>
+                <span class="font-bold text-lg tracking-tight hidden sm:inline-block">Noorah Elbarky</span>
             </div>
-            
-            <!-- Tab Navigation -->
-            <nav class="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
-                <button onclick="switchTab('personal')" id="btn-personal" class="tab-btn px-4 py-2 text-sm font-semibold rounded-lg transition-all bg-white text-red-900 shadow-sm">
-                    <i class="fa-brands fa-instagram mr-1.5"></i> Personal Grid
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-full bg-gray-100 dark:bg-darkCard text-gray-600 dark:text-gray-300 hover:text-scarlet dark:hover:text-scarlet transition-colors">
+                    <i class="fas font-solid fa-moon dark:hidden"></i>
+                    <i class="fas font-solid fa-sun hidden dark:inline"></i>
                 </button>
-                <button onclick="switchTab('aaire')" id="btn-aaire" class="tab-btn px-4 py-2 text-sm font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900">
-                    <i class="fa-solid fa-briefcase mr-1.5"></i> AAIRE Work
-                </button>
-                <button onclick="switchTab('standout')" id="btn-standout" class="tab-btn px-4 py-2 text-sm font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900">
-                    <i class="fa-solid fa-star mr-1.5"></i> Impact & Vision
-                </button>
-            </nav>
+                <a href="mailto:noorahelbarky@icloud.com" class="bg-scarlet hover:bg-scarletHover text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm">
+                    Contact Me
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
-
-        <!-- TAB 1: PERSONAL PROJECTS (Instagram-Style Grid) -->
-        <section id="tab-personal" class="tab-content">
-            <div class="mb-8 bg-gradient-to-r from-red-900 to-red-800 text-white p-6 rounded-2xl shadow-md flex flex-col md:flex-row justify-between items-center gap-6">
-                <div>
-                    <span class="bg-red-700 text-red-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Venture & Creative Sandbox</span>
-                    <h2 class="text-2xl font-bold mt-2">Digital Design & 2D Flat Prototyping</h2>
-                    <p class="text-red-100 text-sm mt-1 max-w-xl">
-                        An active bootstrapping initiative exploring 2D flat design structures, brand storytelling, and user-facing digital assets. Tested via live forms receiving 70+ user responses.
-                    </p>
+    <!-- HERO / INTRO BANNER -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-white dark:bg-darkCard p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl">
+            <div class="space-y-4 max-w-2xl text-center md:text-left">
+                <div class="inline-block bg-scarlet/10 text-scarlet font-semibold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+                    Road to Silicon Valley Cohort Applicant
                 </div>
-                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="bg-white text-red-900 hover:bg-red-50 px-5 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all flex items-center gap-2 whitespace-nowrap">
-                    <i class="fa-brands fa-instagram text-lg"></i> Visit Live Instagram Feed
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+                    Hi, I'm <span class="gradient-text">Noorah Elbarky</span>
+                </h1>
+                <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg font-medium leading-relaxed">
+                    Marketing & Supply Chain Student @ <strong class="text-gray-900 dark:text-white">Rutgers Business School</strong> | Founder & Creative Developer
+                </p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                    Bridging brand strategy, digital product creation, and community scaling through iterative 2D flat design, user validation, and visual storytelling.
+                </p>
+                
+                <!-- Quick Social Links -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                    <a href="https://linkedin.com/in/noorahelbarky" target="_blank" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fab fa-linkedin text-base"></i> LinkedIn
+                    </a>
+                    <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fab fa-instagram text-base"></i> @noorahs_portfolio
+                    </a>
+                    <a href="https://github.com" target="_blank" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fab fa-github text-base"></i> GitHub
+                    </a>
+                    <a href="mailto:noorahelbarky@icloud.com" class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-scarlet hover:text-white dark:hover:bg-scarlet text-gray-700 dark:text-gray-200 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all">
+                        <i class="fas fa-envelope text-base"></i> Email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Badge / Callout -->
+            <div class="w-full md:w-auto flex flex-col items-center">
+                <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-tr from-scarlet to-amber-500 shadow-2xl">
+                    <div class="w-full h-full rounded-full bg-gray-200 dark:bg-gray-800 flex flex-col items-center justify-center text-center p-4">
+                        <i class="fas fa-rocket text-3xl sm:text-4xl text-scarlet mb-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-200">Growth Engine</span>
+                        <span class="text-lg font-extrabold text-scarlet">236K+</span>
+                        <span class="text-[10px] text-gray-500 dark:text-gray-400">Digital Engagements</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB NAVIGATION BAR -->
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-8">
+        <div class="flex border-b border-gray-200 dark:border-gray-800 space-x-2 sm:space-x-8 overflow-x-auto pb-1 scrollbar-none">
+            <button onclick="switchTab('tab1')" id="tab1-btn" class="tab-btn active py-3 px-4 border-b-2 font-bold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-scarlet border-scarlet">
+                <i class="fas fa-border-all"></i> Personal Projects
+            </button>
+            <button onclick="switchTab('tab2')" id="tab2-btn" class="tab-btn py-3 px-4 border-b-2 font-semibold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-800 dark:hover:text-gray-200">
+                <i class="fas fa-briefcase"></i> AAIRE Experience
+            </button>
+            <button onclick="switchTab('tab3')" id="tab3-btn" class="tab-btn py-3 px-4 border-b-2 font-semibold text-sm sm:text-base transition-all whitespace-nowrap flex items-center gap-2 text-gray-500 dark:text-gray-400 border-transparent hover:text-gray-800 dark:hover:text-gray-200">
+                <i class="fas fa-chart-line"></i> Leadership & Impact
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow mb-16">
+
+        <!-- TAB 1: PERSONAL PROJECTS (INSTAGRAM SCROLLABLE FEED STYLE) -->
+        <div id="tab1" class="tab-content block space-y-8 max-w-2xl mx-auto">
+            
+            <!-- Feed Intro Header -->
+            <div class="flex items-center justify-between bg-white dark:bg-darkCard p-4 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 p-0.5 flex items-center justify-center text-white font-bold text-xs">
+                        <div class="w-full h-full bg-white dark:bg-darkCard rounded-full flex items-center justify-center text-scarlet">
+                            NE
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold text-gray-900 dark:text-white">noorahs_portfolio</h2>
+                        <p class="text-[11px] text-gray-500">Instagram Design & Venture Feed</p>
+                    </div>
+                </div>
+                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold hover:opacity-90 transition-opacity shadow-sm">
+                    <i class="fab fa-instagram"></i> Follow on IG
                 </a>
             </div>
 
-            <!-- Instagram Grid Gallery -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                
-                <!-- Grid Item 1 -->
-                <div class="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer" onclick="openModal('Brand Identity 2D Flat', 'assets/design1.png', 'Explored minimalist vector layouts and typography hierarchy to enhance brand retention. Validated through user testing cycles.')">
-                    <div class="aspect-square bg-slate-100 overflow-hidden relative">
-                        <!-- Replace 'assets/design1.png' with your actual image path or direct URL -->
-                        <img src="assets/design1.png" alt="Design 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-sm gap-2">
-                            <i class="fa-regular fa-eye"></i> View Details
-                        </div>
+            <!-- ========================================== -->
+            <!-- INSTAGRAM POST 1                           -->
+            <!-- ========================================== -->
+            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
+                <!-- Post Header -->
+                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
+                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
                     </div>
-                    <div class="p-4">
-                        <span class="text-xs font-bold text-red-800 uppercase tracking-wide">Brand System</span>
-                        <h3 class="font-bold text-slate-800 text-base mt-0.5">Minimalist 2D Flat Layout</h3>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-2">Tested typography and layout hierarchy for high-retention digital content.</p>
-                    </div>
+                    <span class="text-xs text-gray-400 font-medium">Rutgers, NJ</span>
                 </div>
-
-                <!-- Grid Item 2 -->
-                <div class="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer" onclick="openModal('Campaign Graphic', 'assets/design2.png', 'Designed high-engagement digital campaign assets utilizing Canva advanced tools, driving interaction across target user cohorts.')">
-                    <div class="aspect-square bg-slate-100 overflow-hidden relative">
-                        <img src="assets/design2.png" alt="Design 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1626544827763-d516dce335e2?auto=format&fit=crop&w=600&q=80'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-sm gap-2">
-                            <i class="fa-regular fa-eye"></i> View Details
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-bold text-red-800 uppercase tracking-wide">Digital Prototyping</span>
-                        <h3 class="font-bold text-slate-800 text-base mt-0.5">Campaign Engagement Asset</h3>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-2">Optimized visual assets for digital conversion and audience retention.</p>
-                    </div>
+                <!-- Post Image (Replace src with your image or asset path) -->
+                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="Post 1" class="w-full h-full object-cover">
                 </div>
-
-                <!-- Grid Item 3 -->
-                <div class="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer" onclick="openModal('Interactive Product Mockup', 'assets/design3.png', 'Rapidly prototyped digital layouts for community engagement initiatives, incorporating real-time feedback loops.')">
-                    <div class="aspect-square bg-slate-100 overflow-hidden relative">
-                        <img src="assets/design3.png" alt="Design 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=600&q=80'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-medium text-sm gap-2">
-                            <i class="fa-regular fa-eye"></i> View Details
-                        </div>
+                <!-- Post Actions Bar -->
+                <div class="px-4 pt-3 pb-1 flex items-center justify-between">
+                    <div class="flex items-center space-x-4 text-xl">
+                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
                     </div>
-                    <div class="p-4">
-                        <span class="text-xs font-bold text-red-800 uppercase tracking-wide">Product UI Concept</span>
-                        <h3 class="font-bold text-slate-800 text-base mt-0.5">Community Engagement Wireframe</h3>
-                        <p class="text-xs text-slate-500 mt-1 line-clamp-2">Validated layout structures through user response forms (70+ responses).</p>
-                    </div>
+                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
                 </div>
-
-            </div>
-        </section>
-
-        <!-- TAB 2: AAIRE EXPERIENCE -->
-        <section id="tab-aaire" class="tab-content hidden">
-            <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-100 pb-6 mb-6">
-                    <div>
-                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Professional Experience</span>
-                        <h2 class="text-2xl font-bold mt-2 text-slate-900">Asian American Institute for Research & Engagement</h2>
-                        <p class="text-slate-500 font-medium text-sm">Content Development Coordinator • Woodbury, NY (Long Island)</p>
-                    </div>
-                    <a href="https://www.aaire.org" target="_blank" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-globe"></i> Visit AAIRE Website
-                    </a>
+                <!-- Likes Count -->
+                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                    142 likes
                 </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="font-bold text-slate-800 text-lg mb-2">Key Contributions & Research Impact</h3>
-                        <ul class="space-y-3 text-slate-600 text-sm list-disc pl-5">
-                            <li>Spearheaded the development of interactive digital educational products and multimedia presentations for corporate and institutional partners using advanced design tech.</li>
-                            <li>Partnered cross-functionally to engineer communication frameworks and content strategies focused on minority community empowerment and advocacy.</li>
-                            <li>Conducted rigorous market research and consumer behavior analysis to shape high-impact messaging campaigns and digital content strategies.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
-                        <h4 class="font-bold text-slate-800 text-sm mb-1"><i class="fa-solid fa-lightbulb text-amber-600 mr-2"></i> Strategic Takeaway</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            Working with AAIRE refined my ability to translate complex social and cultural research into structured, visually compelling digital communication products tailored for diverse institutional audiences.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 3: IMPACT & VISION -->
-        <section id="tab-standout" class="tab-content hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- NASA Card -->
-                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <span class="bg-red-100 text-red-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Leadership Scale</span>
-                    <h3 class="text-xl font-bold mt-3 text-slate-900">North African Student Association</h3>
-                    <p class="text-xs font-medium text-slate-500 mb-4">Community Outreach Chair • March 2026 – Present</p>
-                    <div class="grid grid-cols-2 gap-4 my-4 bg-slate-50 p-4 rounded-xl border border-slate-100 text-center">
-                        <div>
-                            <p class="text-2xl font-black text-red-900">236K+</p>
-                            <p class="text-xs text-slate-500 font-medium">Digital Engagements</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl font-black text-red-900">200+</p>
-                            <p class="text-xs text-slate-500 font-medium">Active Members</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        Co-founded and operationally scaled a new student organization, applying startup execution principles and targeted 2D visual asset creation to build a thriving cultural community.
+                <!-- Caption Area -->
+                <div class="px-4 pb-4 space-y-1">
+                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
+                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
+                        Exploring minimalist 2D flat design systems and typography hierarchy. Testing how clean visual structures improve user brand retention! 💡✨ #Design #Branding #Rutgers
                     </p>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">2 days ago</p>
                 </div>
+            </article>
 
-                <!-- Canvassador Card -->
-                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <span class="bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Brand Evangelism</span>
-                    <h3 class="text-xl font-bold mt-3 text-slate-900">Canva Campus Ambassador</h3>
-                    <p class="text-xs font-medium text-slate-500 mb-4">Canvassador Program • August 2026 – Present</p>
-                    <ul class="space-y-2.5 text-xs text-slate-600 list-disc pl-4 mb-4">
-                        <li>Drive adoption of advanced visual communication tools across the university ecosystem.</li>
-                        <li>Create data-driven marketing campaigns and experiential events, scaling user awareness.</li>
-                        <li>Curate high-impact digital content assets to support brand positioning.</li>
-                    </ul>
-                    <div class="bg-blue-50 p-3 rounded-xl border border-blue-100 text-xs text-blue-900 font-medium">
-                        <i class="fa-solid fa-rocket mr-1.5"></i> Passionate about democratizing design and visual storytelling.
+            <!-- ========================================== -->
+            <!-- INSTAGRAM POST 2                           -->
+            <!-- ========================================== -->
+            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
+                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
                     </div>
+                    <span class="text-xs text-gray-400 font-medium">New Brunswick</span>
                 </div>
-            </div>
-
-            <!-- Technical Toolkit Bar -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                <h3 class="font-bold text-slate-800 text-base mb-3">Technical Toolkit & Core Competencies</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">Canva (Advanced)</span>
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">2D Flat Design</span>
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">Digital Prototyping</span>
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">Social Media Analytics</span>
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">Entrepreneurial Execution</span>
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">Cross-Functional Leadership</span>
-                    <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200">GitHub & Web Hosting</span>
+                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Post 2" class="w-full h-full object-cover">
                 </div>
-            </div>
-        </section>
+                <div class="px-4 pt-3 pb-1 flex items-center justify-between">
+                    <div class="flex items-center space-x-4 text-xl">
+                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                    </div>
+                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                </div>
+                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                    198 likes • 70+ responses
+                </div>
+                <div class="px-4 pb-4 space-y-1">
+                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
+                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
+                        Deploying live validation forms to test market response! Captured over 70+ user feedback responses to iterate on product prototypes. Fast learning cycles in action 🚀📈
+                    </p>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">5 days ago</p>
+                </div>
+            </article>
 
-    </main>
+            <!-- ========================================== -->
+            <!-- INSTAGRAM POST 3                           -->
+            <!-- ========================================== -->
+            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
+                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                    </div>
+                    <span class="text-xs text-gray-400 font-medium">Canvassador</span>
+                </div>
+                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Post 3" class="w-full h-full object-cover">
+                </div>
+                <div class="px-4 pt-3 pb-1 flex items-center justify-between">
+                    <div class="flex items-center space-x-4 text-xl">
+                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                    </div>
+                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                </div>
+                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                    230 likes
+                </div>
+                <div class="px-4 pb-4 space-y-1">
+                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
+                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
+                        Prototyping community engagement layouts. Merging marketing analytics with human-centered visual design to scale digital adoption. 🎨📊
+                    </p>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">1 week ago</p>
+                </div>
+            </article>
 
-    <!-- Modal for Detailed View -->
-    <div id="projectModal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-2xl animate-in">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center font-bold">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <h3 id="modalTitle" class="text-xl font-bold text-slate-900 mb-2">Project Title</h3>
-            <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden my-4 relative">
-                <img id="modalImg" src="" alt="Project Preview" class="w-full h-full object-cover">
-            </div>
-            <p id="modalDesc" class="text-sm text-slate-600 leading-relaxed mb-6">Detailed description goes here.</p>
-            <div class="flex justify-end">
-                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="bg-red-900 hover:bg-red-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-sm transition-all flex items-center gap-2">
-                    <i class="fa-brands fa-instagram"></i> View on Instagram
+            <!-- ========================================== -->
+            <!-- INSTAGRAM POST 4                           -->
+            <!-- ========================================== -->
+            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
+                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                    </div>
+                    <span class="text-xs text-gray-400 font-medium">NASA Impact</span>
+                </div>
+                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31216994c4?auto=format&fit=crop&w=800&q=80" alt="Post 4" class="w-full h-full object-cover">
+                </div>
+                <div class="px-4 pt-3 pb-1 flex items-center justify-between">
+                    <div class="flex items-center space-x-4 text-xl">
+                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                    </div>
+                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                </div>
+                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                    310 likes
+                </div>
+                <div class="px-4 pb-4 space-y-1">
+                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
+                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
+                        Behind the scenes of scaling digital outreach to 236K+ total engagements! Visual storytelling makes all the difference when building a community from scratch. 🚀
+                    </p>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">2 weeks ago</p>
+                </div>
+            </article>
+
+            <!-- ========================================== -->
+            <!-- INSTAGRAM POST 5                           -->
+            <!-- ========================================== -->
+            <article class="bg-white dark:bg-darkCard rounded-xl border border-gray-200 dark:border-gray-800 shadow-md overflow-hidden">
+                <div class="flex items-center justify-between p-3.5 border-b border-gray-100 dark:border-gray-800/60">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-full bg-scarlet text-white flex items-center justify-center text-xs font-bold">NE</div>
+                        <span class="text-xs font-bold text-gray-900 dark:text-white">noorahs_portfolio</span>
+                    </div>
+                    <span class="text-xs text-gray-400 font-medium">Studio Lab</span>
+                </div>
+                <div class="aspect-square w-full bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="Post 5" class="w-full h-full object-cover">
+                </div>
+                <div class="px-4 pt-3 pb-1 flex items-center justify-between">
+                    <div class="flex items-center space-x-4 text-xl">
+                        <button class="text-red-500 hover:scale-110 transition-transform"><i class="fas fa-heart"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-comment"></i></button>
+                        <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"><i class="far fa-paper-plane"></i></button>
+                    </div>
+                    <button class="text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform text-xl"><i class="far fa-bookmark"></i></button>
+                </div>
+                <div class="px-4 py-1 text-xs font-bold text-gray-900 dark:text-white">
+                    185 likes
+                </div>
+                <div class="px-4 pb-4 space-y-1">
+                    <p class="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
+                        <strong class="font-bold text-gray-900 dark:text-white mr-1.5">noorahs_portfolio</strong>
+                        <!-- WRITE YOUR CUSTOM TITLE & CAPTION HERE -->
+                        Experimenting with vector assets and layout configurations. Continuous learning and rapid upskilling are key to modern product design. 💻✨
+                    </p>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wide pt-1">3 weeks ago</p>
+                </div>
+            </article>
+
+            <!-- Instagram Feed Footer CTA -->
+            <div class="bg-gradient-to-r from-scarlet to-pink-600 rounded-2xl p-6 text-white text-center space-y-3 shadow-lg">
+                <h3 class="text-base font-bold">Want to see more live design flats?</h3>
+                <p class="text-xs text-white/90">Browse my entire active portfolio stream directly on Instagram.</p>
+                <a href="https://instagram.com/noorahs_portfolio" target="_blank" class="inline-block bg-white text-scarlet px-5 py-2.5 rounded-lg text-xs font-extrabold hover:bg-gray-100 transition-colors shadow-md">
+                    <i class="fab fa-instagram mr-1"></i> Visit Instagram Profile
                 </a>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 mt-auto">
+        <!-- TAB 2: AAIRE EXPERIENCE -->
+        <div id="tab2" class="tab-content hidden space-y-8">
+            <div class="bg-white dark:bg-darkCard p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-800 pb-6">
+                    <div>
+                        <span class="text-xs font-bold text-scarlet tracking-wider uppercase">Institutional Experience</span>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">Asian American Institute for Research & Engagement (AAIRE)</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Content Development Coordinator | Woodbury, NY (Long Island)</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-md font-semibold text-gray-600 dark:text-gray-300">Nov 2025 – Present</span>
+                        <a href="https://aaire.org" target="_blank" class="bg-scarlet/10 text-scarlet hover:bg-scarlet hover:text-white px-3 py-1.5 rounded-md text-xs font-bold transition-colors">
+                            Visit Site <i class="fas fa-external-link-alt text-[10px] ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case Study Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                    <div class="space-y-3 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200/60 dark:border-gray-700/50">
+                        <div class="w-10 h-10 rounded-lg bg-scarlet/10 text-scarlet flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 dark:text-white">Educational Design Products</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Spearhead the development of interactive digital presentations and instructional assets for schools and corporate partners using advanced design tech.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200/60 dark:border-gray-700/50">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 dark:text-white">Communication Frameworks</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Partner cross-functionally to engineer message strategies focused on minority community empowerment, social impact, and high-retention corporate delivery.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200/60 dark:border-gray-700/50">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-lg">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3 class="font-bold text-base text-gray-900 dark:text-white">Market & Social Research</h3>
+                        <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Conduct secondary market research and consumer behavior analysis to shape high-impact, data-backed messaging frameworks for partner organizations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Showcase Media Strip -->
+                <div class="pt-4">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Institutional Output Examples</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Presentation Design" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+                                <span class="text-white text-xs font-bold">Corporate Advocacy Modules</span>
+                                <span class="text-gray-300 text-[10px]">Interactive Canva & digital design decks for corporate diversity programs.</span>
+                            </div>
+                        </div>
+                        <div class="relative h-48 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+                                <span class="text-white text-xs font-bold">Cross-Functional Strategy</span>
+                                <span class="text-gray-300 text-[10px]">Collaborative research sprints translated into visual presentations.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: LEADERSHIP & IMPACT -->
+        <div id="tab3" class="tab-content hidden space-y-8">
+            
+            <!-- NASA CASE STUDY -->
+            <div class="bg-white dark:bg-darkCard p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-800 pb-6">
+                    <div>
+                        <span class="text-xs font-bold text-scarlet tracking-wider uppercase">Startup Venture & Community Case Study</span>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-1">North African Student Association (NASA)</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Co-Founder & Community Outreach Chair | Rutgers New Brunswick</p>
+                    </div>
+                    <span class="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold text-xs px-3 py-1.5 rounded-full">
+                        Growth Case Study
+                    </span>
+                </div>
+
+                <!-- Key Metrics Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                    <div class="bg-scarlet/5 dark:bg-scarlet/10 p-4 rounded-xl border border-scarlet/20">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-scarlet">236,000+</div>
+                        <div class="text-[11px] font-semibold text-gray-600 dark:text-gray-300 mt-1 uppercase tracking-wider">Instagram Engagements</div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">200+</div>
+                        <div class="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider">Active Members</div>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1 bg-gray-50 dark:bg-gray-800 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">0 → 1</div>
+                        <div class="text-[11px] font-semibold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wider">Built From Scratch</div>
+                    </div>
+                </div>
+
+                <!-- Strategic Summary -->
+                <div class="space-y-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p>
+                        Co-founded and operationally scaled a brand-new cultural organization at Rutgers. Applied entrepreneurial launch principles by architecting a high-conversion digital growth engine through targeted content creation, brand identity systems, and 2D visual assets.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CANVA AMBASSADOR & SKILLS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Canva Ambassador -->
+                <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-xl">
+                            C
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-white">Canva Campus Ambassador</h3>
+                            <p class="text-xs text-gray-500">Canvassador Program | Aug 2026 – Present</p>
+                        </div>
+                    </div>
+                    <ul class="text-xs text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside">
+                        <li>Drive adoption of creative design tech across the campus ecosystem.</li>
+                        <li>Lead data-driven marketing campaigns scaling engagement metrics.</li>
+                        <li>Curate digital assets supporting strategic partnership initiatives.</li>
+                    </ul>
+                </div>
+
+                <!-- Technical Stack & Tooling -->
+                <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md space-y-4">
+                    <h3 class="font-bold text-base text-gray-900 dark:text-white flex items-center gap-2">
+                        <i class="fas fa-tools text-scarlet"></i> Technical Toolkit & Competencies
+                    </h3>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="bg-scarlet/10 text-scarlet text-xs font-bold px-3 py-1.5 rounded-lg">Canva (Advanced)</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">2D Flat Prototyping</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Social Media Analytics</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Microsoft Excel</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">Entrepreneurial Execution</span>
+                        <span class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-lg">GitHub & Web Hosting</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white dark:bg-darkCard border-t border-gray-200 dark:border-gray-800 py-6 text-center text-xs text-gray-500 mt-auto">
         <p>© 2026 Noorah Elbarky • Built for the Road to Silicon Valley Application</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-scarlet', 'border-scarlet');
+                btn.classList.add('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+            });
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.remove('hidden');
+            activeContent.classList.add('block');
+
+            const activeBtn = document.getElementById(tabId + '-btn');
+            activeBtn.classList.remove('text-gray-500', 'dark:text-gray-400', 'border-transparent');
+            activeBtn.classList.add('text-scarlet', 'border-scarlet');
+        }
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlEl.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        });
+    </script>
 </body>
 </html>
