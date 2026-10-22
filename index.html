@@ -9,109 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#1E0D26; --surface:#2A1536; --text:#F3EBDD; --muted:#BBA9C6; --accent:#D2B4E0;
-    --line:rgba(243,235,221,.18); --btn-bg:#F3EBDD; --btn-fg:#2A1533; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#1E0D26; --surface:#2A1536; --text:#F3EBDD; --muted:#BBA9C6; --accent:#D2B4E0;
-  --line:rgba(243,235,221,.18); --btn-bg:#F3EBDD; --btn-fg:#2A1533; color-scheme:dark;
-}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);height:100%}
-body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
-a{color:inherit}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
-
-/* header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:var(--serif);font-size:1.2rem;text-decoration:none;font-weight:500}
-nav{display:flex;gap:clamp(14px,3vw,30px);font-size:.95rem}
-nav a{text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:1px solid transparent}
-nav a:hover{color:var(--text);border-color:var(--accent)}
-
-/* hero */
-.hero{padding:clamp(48px,9vw,110px) 0 clamp(56px,9vw,110px)}
-.hero .wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
-h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,9vw,6.6rem);line-height:.98;letter-spacing:-.025em;margin:0 0 28px;color:var(--accent)}
-.lede{font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.5;max-width:30em;margin:0 0 36px}
-.actions{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.98rem;border:1.5px solid var(--btn-bg);background:var(--btn-bg);color:var(--btn-fg)}
-.btn.ghost{background:transparent;color:var(--text);border-color:var(--text)}
-.btn:hover{opacity:.88}
-.portrait{aspect-ratio:4/5;width:100%;max-width:380px;justify-self:end;border-radius:999px 999px 28px 28px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;
-  background:radial-gradient(120% 90% at 30% 15%,#7A3C8F 0%,var(--velvet) 45%,var(--velvet-deep) 100%);color:#F7F1E5;box-shadow:0 0 0 1px var(--line)}
-.portrait span{font-family:var(--serif);font-weight:300;font-size:6rem;letter-spacing:-.03em;padding-bottom:34px;opacity:.9}
-.portrait img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* sections */
-section.block{padding:clamp(44px,7vw,84px) 0;border-top:1px solid var(--line)}
-section.block .wrap{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,5vw,64px)}
-h2{font-family:var(--serif);font-weight:400;font-size:1.7rem;margin:0;color:var(--accent);line-height:1.2}
-.about p{margin:0 0 1.1em;max-width:36em;font-size:1.15rem}
-.about p:last-child{margin-bottom:0}
-
-.entry{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:0 0 36px;margin:0 0 36px;border-bottom:1px solid var(--line)}
-.entry:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
-.when{color:var(--muted);font-size:.93rem;line-height:1.5}
-.entry h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin:0 0 2px;line-height:1.3}
-.org{margin:0 0 12px;color:var(--muted)}
-.entry ul{margin:0;padding-left:1.1em}
-.entry li{margin-bottom:.5em;max-width:38em}
-.entry li::marker{color:var(--accent)}
-
-.edu h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin:0 0 2px}
-.edu p{margin:0 0 6px;max-width:36em}
-.muted{color:var(--muted)}
-
-.skills dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:14px 20px}
-.skills dt{color:var(--muted);font-size:.93rem;padding-top:3px}
-.skills dd{margin:0}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.tags li{padding:5px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.95rem}
-
-.contact p{margin:0 0 18px;font-size:1.15rem;max-width:30em}
-.contact ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.contact a{font-family:var(--serif);font-size:1.4rem;text-decoration-thickness:1px;text-underline-offset:5px;text-decoration-color:var(--accent)}
-.contact a:hover{color:var(--accent)}
-.contact span{display:inline-block;min-width:92px;color:var(--muted);font-size:.95rem;font-family:var(--sans)}
-
-h2 .sub{display:block;margin-top:8px;font-family:var(--sans);font-size:.92rem;line-height:1.45;color:var(--muted)}
-.intro{max-width:36em;margin:0 0 26px}
-.stat{display:flex;align-items:baseline;gap:6px 18px;flex-wrap:wrap;margin:0 0 30px;padding-bottom:26px;border-bottom:1px solid var(--line)}
-.stat strong{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,6vw,4.2rem);line-height:1;letter-spacing:-.02em;color:var(--accent)}
-.stat span{color:var(--muted);max-width:20em;line-height:1.45}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:0;padding:0;list-style:none}
-.card{position:relative;display:flex;flex-direction:column;gap:8px;padding:20px 20px 18px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
-.card:hover{border-color:var(--accent)}
-.card:has(a:focus-visible){outline:3px solid var(--accent);outline-offset:3px}
-.tag{align-self:flex-start;padding:2px 11px;border-radius:999px;background:#5A2A6E;color:#F7F1E5;font-size:.8rem;line-height:1.6}
-.card h3{margin:0;font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.3}
-.card h3 a{text-decoration:none;outline:none}
-.card h3 a::after{content:"";position:absolute;inset:0;border-radius:16px}
-.card p{margin:0;font-size:.97rem;line-height:1.55;color:var(--muted)}
-.card .res{color:var(--accent);font-weight:600;font-size:.95rem}
-.card .go{margin-top:auto;padding-top:6px;font-size:.92rem;font-weight:600;color:var(--accent)}
-.card .links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:auto;padding-top:6px}
-.card .links a{font-size:.92rem;font-weight:600;color:var(--accent)}
-footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-
-@media (max-width:760px){
-  .hero .wrap{grid-template-columns:1fr}
-  .portrait{order:-1;justify-self:start;max-width:260px}
-  section.block .wrap{grid-template-columns:1fr;gap:22px}
-  .entry,.skills dl{grid-template-columns:1fr;gap:6px}
-  .skills dl{gap:6px 0}.skills dd{margin-bottom:14px}
-  nav{font-size:.88rem;gap:12px}
-  .contact span{display:block}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
 </head>
 <body>
 <header>
@@ -138,7 +35,9 @@ footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
         </div>
       </div>
       <div class="portrait">
-        <img src="headshot.png" alt="Noorah Elbarky Profile Picture"
+        <img src="images/headshot.png" alt="Noorah Elbarky Profile Picture">
+      </div>
+    </div>
   </div>
 
   <section class="block about" id="about">
@@ -223,60 +122,77 @@ footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
     </div>
   </section>
 
-<li class="card">
-  <div class="card-gallery">
-    <img src="images/nasa-meet-team.png" alt="Meet the Team">
-    <img src="images/nasa-event-1.png" alt="Event Flyer 1">
-    <img src="images/nasa-event-2.png" alt="Event Flyer 2">
-    <img src="images/nasa-post.png" alt="Social Media Post">
-    <img src="images/nasa-cover.png" alt="Campaign Graphic">
-  </div>
-  <span class="tag">Community Outreach</span>
-  <h3>NASA Cultural Outreach</h3>
-  <p>Event flyers, team highlights, and community engagement graphics.</p>
-</li>
-      
+  <!-- NASA Projects Section with Gallery -->
   <section class="block" id="nasa">
     <div class="wrap">
       <h2>North African Student Association</h2>
       <div>
         <div class="stat"><strong>236,000+</strong><span>total Instagram engagements and 200+ active members</span></div>
         <p class="intro">Posts and flyers I designed as Community Outreach Chair. Follow along at <a href="https://www.instagram.com/rutgersnasa" target="_blank" rel="noopener">@rutgersnasa</a>.</p>
+        
         <ul class="cards">
-          <li class="card"><span class="tag">Instagram</span><h3><a href="https://canva.link/3ikhcys36me6a1c" target="_blank" rel="noopener">Meet the Team</a></h3><p>An introduction to the people behind the organization, designed by hand over many hours.</p><p class="res">30,000 views and 1.4K profile visits</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Event recap</span><h3><a href="https://canva.link/arqr7hz0kii5zim" target="_blank" rel="noopener">Our first event, 10/6</a></h3><p>A look back at the association’s first event, which brought out 60+ students.</p><p class="res">7,000+ views overall</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Flyer</span><h3><a href="https://canva.link/5uxfu50k0urtj1b" target="_blank" rel="noopener">RU Smarter Than NASA?</a></h3><p>The flyer for our 10/6 event.</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Instagram</span><h3><a href="https://canva.link/dcllj36xhkx4886" target="_blank" rel="noopener">Trend post, 10/12</a></h3><p>A post built around an Instagram trend of the moment.</p><p class="res">7,000+ views</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Flyer</span><h3><a href="https://canva.link/fx21nl1r2dt6duq" target="_blank" rel="noopener">Spill the Atay Night</a></h3><p>The flyer for our next event on 11/3.</p><span class="go" aria-hidden="true">View design</span></li>
+          <li class="card">
+            <div class="card-gallery">
+              <img src="images/nasa-meet-team.png" alt="Meet the Team">
+              <img src="images/nasa-event-1.png" alt="Event Flyer 1">
+              <img src="images/nasa-event-2.png" alt="Event Flyer 2">
+              <img src="images/nasa-post.png" alt="Social Media Post">
+              <img src="images/nasa-cover.png" alt="Campaign Graphic">
+            </div>
+            <span class="tag">Instagram &amp; Events</span>
+            <h3>NASA Cultural Outreach</h3>
+            <p>Event flyers, team highlights, and community engagement graphics.</p>
+            <span class="go" aria-hidden="true"><a href="https://www.instagram.com/rutgersnasa" target="_blank" rel="noopener">View Instagram &rarr;</a></span>
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- AAIRE Projects Section with Gallery -->
   <section class="block" id="aaire">
     <div class="wrap">
       <h2>AAIRE<span class="sub">Asian American Institute for Research &amp; Engagement</span></h2>
       <div>
         <p class="intro">Flyers, recaps, and blog graphics I created as Social Media Intern and Content Development Coordinator.</p>
+        
         <ul class="cards">
-          <li class="card"><span class="tag">Event recap</span><h3><a href="https://canva.link/1f6jwmxs8l7tqnu" target="_blank" rel="noopener">Canva workshop for high schoolers</a></h3><p>A recap of the summer event AAIRE hosted to teach high school students how to use Canva.</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Post</span><h3><a href="https://canva.link/pscafpytwj6f6or" target="_blank" rel="noopener">Summer Program feature</a></h3><p>A post from AAIRE’s Summer Program that features me.</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Flyer</span><h3><a href="https://canva.link/ituzj8vmldfvfid" target="_blank" rel="noopener">Townhall flyer</a></h3><p>A flyer for an AAIRE town hall.</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Flyer</span><h3><a href="https://canva.link/05cgaczds3fxy6z" target="_blank" rel="noopener">Healing Circles flyer</a></h3><p>A flyer for the Healing Circles program.</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card multi"><span class="tag">Blog graphics</span><h3>Blog feature images</h3><p>Three images designed to fit AAIRE’s vision while matching the brand’s look.</p><div class="links"><a href="https://canva.link/lord1n56z7h213v" target="_blank" rel="noopener">Image 1</a><a href="https://canva.link/c9atx86cyskgr6v" target="_blank" rel="noopener">Image 2</a><a href="https://canva.link/7mwbo2o3ldax1ij" target="_blank" rel="noopener">Image 3</a></div></li>
+          <li class="card">
+            <div class="card-gallery">
+              <img src="images/aaire-healing-circles.png" alt="Healing Circles flyer">
+              <img src="images/aaire-townhall.png" alt="Townhall flyer">
+              <img src="images/aaire-intern-feature.png" alt="Intern feature">
+              <img src="images/aaire-blog-1.png" alt="Blog feature 1">
+              <img src="images/aaire-blog-2.png" alt="Blog feature 2">
+            </div>
+            <span class="tag">Digital Content</span>
+            <h3>AAIRE Creative Assets</h3>
+            <p>Healing circles, townhall promotions, and blog feature graphics.</p>
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- Independent Projects Section with Gallery -->
   <section class="block" id="independent">
     <div class="wrap">
       <h2>Independent projects</h2>
       <div>
         <p class="intro">Self-initiated work that shows how I approach design and brand storytelling.</p>
+        
         <ul class="cards">
-          <li class="card"><span class="tag">Mock campaign</span><h3><a href="https://canva.link/01sd4c2eit7u36i" target="_blank" rel="noopener">Cafe Habibti</a></h3><p>A marketing campaign concept for a café in New York City, made to show my digital design experience.</p><span class="go" aria-hidden="true">View design</span></li>
-          <li class="card"><span class="tag">Blog post</span><h3><a href="https://canva.link/p0nlbgg2k4ukb4q" target="_blank" rel="noopener">Huda Beauty</a></h3><p>A blog post on Huda Beauty and how its founder built a brand for herself.</p><span class="go" aria-hidden="true">View design</span></li>
+          <li class="card">
+            <div class="card-gallery">
+              <img src="images/canva-huda-beauty.png" alt="Huda Beauty campaign">
+              <img src="images/canva-mock-campaign-1.png" alt="Mock marketing campaign part 1">
+              <img src="images/canva-mock-campaign-2.png" alt="Mock marketing campaign part 2">
+              <img src="images/canva-personal-project.png" alt="Personal project">
+            </div>
+            <span class="tag">Brand Design &amp; Strategy</span>
+            <h3>Canva Ambassador &amp; Personal Work</h3>
+            <p>Huda Beauty campaign, mock marketing concepts, and personal design experiments.</p>
+          </li>
         </ul>
       </div>
     </div>
@@ -322,12 +238,6 @@ footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
     </div>
   </section>
 </main>
-
-
-  <span class="tag">Brand Strategy</span>
-  <h3>Canva Ambassador Campaign</h3>
-  <p>Campus presentations, visual graphics, and digital engagement assets.</p>
-</li>
 
 <footer>
   <div class="wrap">© 2026 Noorah Elbarky</div>
