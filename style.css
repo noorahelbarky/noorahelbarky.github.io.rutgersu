@@ -1,12 +1,12 @@
-/* Color Scheme Variables & Design System */
+ /* Color Scheme Variables & Design System */
 :root {
-  --bg: #F7F1E5;         /* Cream background */
-  --surface: #EFE6D3;    /* Light card background */
-  --text: #2A1533;       /* Dark text */
-  --muted: #6B5A74;      /* Muted text */
-  --velvet: #4B1D5E;     /* Velvet theme color */
-  --velvet-deep: #32103F;/* Deep velvet color */
-  --accent: #4B1D5E;     /* Primary accent color */
+  --bg: #F7F1E5;
+  --surface: #EFE6D3;
+  --text: #2A1533;
+  --muted: #6B5A74;
+  --velvet: #4B1D5E;
+  --velvet-deep: #32103F;
+  --accent: #4B1D5E;
   --line: rgba(75,29,94,.2);
   --btn-bg: #4B1D5E;
   --btn-fg: #F7F1E5;
@@ -18,7 +18,6 @@
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Dark Mode Colors */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #1E0D26;
@@ -91,7 +90,6 @@ a:focus-visible, .btn:focus-visible {
   padding: 0 clamp(20px, 5vw, 48px);
 }
 
-/* Header */
 header {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
@@ -132,7 +130,6 @@ nav a:hover {
   border-color: var(--accent);
 }
 
-/* Hero */
 .hero {
   padding: clamp(48px, 9vw, 110px) 0 clamp(56px, 9vw, 110px);
 }
@@ -211,7 +208,6 @@ h1 {
   display: block;
 }
 
-/* Sections */
 section.block {
   padding: clamp(44px, 7vw, 84px) 0;
   border-top: 1px solid var(--line);
@@ -290,7 +286,6 @@ h2 {
   color: var(--accent);
 }
 
-/* Tab Navigation System */
 .tab-buttons {
   display: flex;
   gap: 10px;
@@ -332,7 +327,6 @@ h2 {
   display: block;
 }
 
-/* Featured Large Project Grid */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -433,7 +427,6 @@ h2 {
   text-decoration: none;
 }
 
-/* Stats Header inside Tab */
 .stat {
   display: flex;
   align-items: baseline;
@@ -464,7 +457,6 @@ h2 {
   margin: 0 0 24px;
 }
 
-/* Education & Skills */
 .edu h3 {
   font-family: var(--serif);
   font-weight: 500;
@@ -515,7 +507,6 @@ h2 {
   font-size: .95rem;
 }
 
-/* Contact Section & Form */
 .contact p {
   margin: 0 0 18px;
   font-size: 1.15rem;
@@ -596,7 +587,6 @@ h2 {
   align-self: flex-start;
 }
 
-/* Footer */
 footer {
   padding: 32px 0 48px;
   border-top: 1px solid var(--line);
@@ -604,7 +594,6 @@ footer {
   font-size: .9rem;
 }
 
-/* Responsive Layout */
 @media (max-width: 760px) {
   .hero .wrap {
     grid-template-columns: 1fr;
