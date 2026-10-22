@@ -9,6 +9,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Custom horizontal scroll container for specific cards */
+  .card-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--surface);
+  }
+  .card-scroll-container::-webkit-scrollbar {
+    height: 6px;
+  }
+  .card-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 999px;
+  }
+  .card-scroll-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    width: 100%;
+  }
+  .scroll-hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-style: italic;
+  }
+</style>
 </head>
 <body>
 <header>
@@ -268,8 +300,17 @@
               </div>
             </article>
 
+            <!-- Scrollable Card for Mock Campaign Series II -->
             <article class="featured-card">
-              <img src="images/canva-mock-campaign-2.png" alt="Mock Campaign Series II" class="card-img-large">
+              <div class="card-scroll-container">
+                <div class="card-scroll-item">
+                  <img src="images/canva-mock-campaign-2.png" alt="Mock Campaign Series II - Slide 1" class="card-img-large">
+                </div>
+                <div class="card-scroll-item">
+                  <img src="images/canva-mock-campaign-1.png" alt="Mock Campaign Series II - Slide 2" class="card-img-large">
+                </div>
+              </div>
+              <p class="scroll-hint">← Swipe or scroll horizontally to view more →</p>
               <div class="card-body">
                 <span class="tag">Creative Campaign</span>
                 <h3>Mock Campaign Series II</h3>
