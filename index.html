@@ -1,264 +1,647 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Noorah Elbarky – Portfolio</title>
-<meta name="description" content="Noorah Elbarky is a marketing student at Rutgers Business School and creative developer working in digital content, design, and community growth.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="#top">Noorah Elbarky</a>
-    <nav aria-label="Main">
-      <a href="#experience">Experience</a>
-      <a href="#nasa">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+/* Color Scheme Variables & Design System */
+:root {
+  --bg: #F7F1E5;         /* Cream background */
+  --surface: #EFE6D3;    /* Light card background */
+  --text: #2A1533;       /* Dark text */
+  --muted: #6B5A74;      /* Muted text */
+  --velvet: #4B1D5E;     /* Velvet theme color */
+  --velvet-deep: #32103F;/* Deep velvet color */
+  --accent: #4B1D5E;     /* Primary accent color */
+  --line: rgba(75,29,94,.2);
+  --btn-bg: #4B1D5E;
+  --btn-fg: #F7F1E5;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Figtree", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
 
-<main id="top">
-  <div class="hero">
-    <div class="wrap">
-      <div>
-        <h1>Noorah Elbarky</h1>
-        <p class="lede">Marketing student and creative developer building digital content, communities, and small ventures.</p>
-        <div class="actions">
-          <a class="btn" href="#experience">See my experience</a>
-          <a class="btn ghost" href="#contact">Get in touch</a>
-        </div>
-      </div>
-      <div class="portrait">
-        <img src="images/headshot.png" alt="Noorah Elbarky Profile Picture">
-      </div>
-    </div>
-  </div>
+/* Dark Mode Colors */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E0D26;
+    --surface: #2A1536;
+    --text: #F3EBDD;
+    --muted: #BBA9C6;
+    --accent: #D2B4E0;
+    --line: rgba(243,235,221,.18);
+    --btn-bg: #F3EBDD;
+    --btn-fg: #2A1533;
+    color-scheme: dark;
+  }
+}
 
-  <section class="block about" id="about">
-    <div class="wrap">
-      <h2>About</h2>
-      <div>
-        <p>I’m a marketing major at Rutgers Business School who likes turning ideas into things people actually engage with: campaigns, communities, and polished digital design.</p>
-        <p>Right now I develop interactive educational content at the Asian American Institute for Research &amp; Engagement, serve as a Canva Campus Ambassador, and help lead the North African Student Association. I also run my own digital design project, where I test ideas with real users.</p>
-      </div>
-    </div>
-  </section>
+:root[data-theme="dark"] {
+  --bg: #1E0D26;
+  --surface: #2A1536;
+  --text: #F3EBDD;
+  --muted: #BBA9C6;
+  --accent: #D2B4E0;
+  --line: rgba(243,235,221,.18);
+  --btn-bg: #F3EBDD;
+  --btn-fg: #2A1533;
+  color-scheme: dark;
+}
 
-  <section class="block" id="experience">
-    <div class="wrap">
-      <h2>Experience</h2>
-      <div>
-        <article class="entry">
-          <div class="when">August 2026 – Present<br>New Brunswick, NJ</div>
-          <div>
-            <h3>Canva Campus Ambassador</h3>
-            <p class="org">Canva Ambassador Program (Canvassador)</p>
-            <ul>
-              <li>Drive adoption of Canva and visual communication tools across the university.</li>
-              <li>Create data-driven marketing campaigns and events that grow awareness and community engagement.</li>
-              <li>Curate digital content that supports brand positioning and partnerships.</li>
-            </ul>
-          </div>
-        </article>
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
-        <article class="entry">
-          <div class="when">Summer 2026<br>Remote</div>
-          <div>
-            <h3>Social Media Intern</h3>
-            <p class="org">Asian American Institute for Research &amp; Engagement</p>
-            <ul>
-              <li>Designed social media posts, flyers, and blog feature images that matched the organization’s brand and vision.</li>
-              <li>Created recap and feature posts for the Summer Program, including its Canva workshop for high school students.</li>
-              <li>Designed a presentation that high school students filled in with their own research and presented at the end of the internship.</li>
-            </ul>
-          </div>
-        </article>
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px);
+  height: 100%;
+}
 
-        <article class="entry">
-          <div class="when">March 2026 – Present<br>New Brunswick, NJ</div>
-          <div>
-            <h3>Community Outreach Chair</h3>
-            <p class="org">North African Student Association</p>
-            <ul>
-              <li>Co-founded and scaled a new student organization, applying startup principles to build a lasting cultural community.</li>
-              <li>Built the organization’s digital growth strategy with targeted content and 2D visual assets, earning 236,000+ Instagram engagements and growing membership to 200+ active students.</li>
-              <li>Managed outreach pipelines and community experiences to improve retention and visibility.</li>
-            </ul>
-          </div>
-        </article>
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
 
-        <article class="entry">
-          <div class="when">November 2025 – Present<br>Woodbury, NY</div>
-          <div>
-            <h3>Content Development Coordinator</h3>
-            <p class="org">Asian American Institute for Research &amp; Engagement</p>
-            <ul>
-              <li>Lead development of interactive digital educational products and multimedia presentations for corporate and institutional partners.</li>
-              <li>Work across teams on communication frameworks and content strategy focused on minority community empowerment and advocacy.</li>
-              <li>Conduct market research and consumer behavior analysis to shape messaging campaigns and content strategy.</li>
-            </ul>
-          </div>
-        </article>
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 10;
+}
 
-        <article class="entry">
-          <div class="when">September 2025 – Present<br>Personal project</div>
-          <div>
-            <h3>Creative Developer &amp; Founder</h3>
-            <p class="org">Digital Portfolio</p>
-            <ul>
-              <li>Bootstrapping an independent digital design initiative that explores business development, digital design structures, and visual storytelling.</li>
-              <li>Teaching myself digital prototyping and turning creative concepts into polished, user-facing designs to test market response.</li>
-              <li>Built live forms that gathered 70+ user responses for market validation.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+a {
+  color: inherit;
+}
 
-  <!-- NASA Projects Section with Gallery -->
-  <section class="block" id="nasa">
-    <div class="wrap">
-      <h2>North African Student Association</h2>
-      <div>
-        <div class="stat"><strong>236,000+</strong><span>total Instagram engagements and 200+ active members</span></div>
-        <p class="intro">Posts and flyers I designed as Community Outreach Chair. Follow along at <a href="https://www.instagram.com/rutgersnasa" target="_blank" rel="noopener">@rutgersnasa</a>.</p>
-        
-        <ul class="cards">
-          <li class="card">
-            <div class="card-gallery">
-              <img src="images/nasa-meet-team.png" alt="Meet the Team">
-              <img src="images/nasa-event-1.png" alt="Event Flyer 1">
-              <img src="images/nasa-event-2.png" alt="Event Flyer 2">
-              <img src="images/nasa-post.png" alt="Social Media Post">
-              <img src="images/nasa-cover.png" alt="Campaign Graphic">
-            </div>
-            <span class="tag">Instagram &amp; Events</span>
-            <h3>NASA Cultural Outreach</h3>
-            <p>Event flyers, team highlights, and community engagement graphics.</p>
-            <span class="go" aria-hidden="true"><a href="https://www.instagram.com/rutgersnasa" target="_blank" rel="noopener">View Instagram &rarr;</a></span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
-  <!-- AAIRE Projects Section with Gallery -->
-  <section class="block" id="aaire">
-    <div class="wrap">
-      <h2>AAIRE<span class="sub">Asian American Institute for Research &amp; Engagement</span></h2>
-      <div>
-        <p class="intro">Flyers, recaps, and blog graphics I created as Social Media Intern and Content Development Coordinator.</p>
-        
-        <ul class="cards">
-          <li class="card">
-            <div class="card-gallery">
-              <img src="images/aaire-healing-circles.png" alt="Healing Circles flyer">
-              <img src="images/aaire-townhall.png" alt="Townhall flyer">
-              <img src="images/aaire-intern-feature.png" alt="Intern feature">
-              <img src="images/aaire-blog-1.png" alt="Blog feature 1">
-              <img src="images/aaire-blog-2.png" alt="Blog feature 2">
-            </div>
-            <span class="tag">Digital Content</span>
-            <h3>AAIRE Creative Assets</h3>
-            <p>Healing circles, townhall promotions, and blog feature graphics.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 48px);
+}
 
-  <!-- Independent Projects Section with Gallery -->
-  <section class="block" id="independent">
-    <div class="wrap">
-      <h2>Independent projects</h2>
-      <div>
-        <p class="intro">Self-initiated work that shows how I approach design and brand storytelling.</p>
-        
-        <ul class="cards">
-          <li class="card">
-            <div class="card-gallery">
-              <img src="images/canva-huda-beauty.png" alt="Huda Beauty campaign">
-              <img src="images/canva-mock-campaign-1.png" alt="Mock marketing campaign part 1">
-              <img src="images/canva-mock-campaign-2.png" alt="Mock marketing campaign part 2">
-              <img src="images/canva-personal-project.png" alt="Personal project">
-            </div>
-            <span class="tag">Brand Design &amp; Strategy</span>
-            <h3>Canva Ambassador &amp; Personal Work</h3>
-            <p>Huda Beauty campaign, mock marketing concepts, and personal design experiments.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+/* Header */
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 11;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
 
-  <section class="block edu" id="education">
-    <div class="wrap">
-      <h2>Education</h2>
-      <div>
-        <h3>B.S. in Marketing</h3>
-        <p>Rutgers Business School, The State University of New Jersey</p>
-        <p class="muted">Expected May 2029 · GPA 3.5/4.0 · Dean’s List 2025–2026</p>
-        <p class="muted">Canvassador (Canva Campus Ambassador) and Community Outreach Chair, North African Student Association</p>
-      </div>
-    </div>
-  </section>
+header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
 
-  <section class="block skills" id="skills">
-    <div class="wrap">
-      <h2>Skills</h2>
-      <dl>
-        <dt>Digital</dt>
-        <dd><ul class="tags"><li>Canva (advanced)</li><li>Design</li><li>Content strategy</li><li>Social media analytics</li></ul></dd>
-        <dt>Strengths</dt>
-        <dd><ul class="tags"><li>Entrepreneurial execution</li><li>Rapid upskilling</li><li>Market strategy</li><li>Cross-functional collaboration</li><li>Interpersonal communication (LinkedIn certificate)</li><li>Arabic (conversational)</li></ul></dd>
-        <dt>Interests</dt>
-        <dd><ul class="tags"><li>Creation</li><li>Tech innovation</li><li>Digital storytelling</li></ul></dd>
-      </dl>
-    </div>
-  </section>
+.brand {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: 500;
+}
 
-  <!-- Contact & Direct Email Form Section -->
-  <section class="block contact" id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <div>
-        <p>Have a project, an opportunity, or an idea to test? Send me a note directly below or reach out via my links.</p>
-        <ul>
-          <li><span>Email</span><a href="mailto:noorahelbarky@icloud.com">noorahelbarky@icloud.com</a></li>
-          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/noorahelbarky" target="_blank" rel="noopener">linkedin.com/in/noorahelbarky</a></li>
-          <li><span>Instagram</span><a href="https://www.instagram.com/noorahs_portfolio" target="_blank" rel="noopener">@noorahs_portfolio</a></li>
-        </ul>
+nav {
+  display: flex;
+  gap: clamp(14px, 3vw, 30px);
+  font-size: .95rem;
+}
 
-        <!-- Direct Email Form -->
-        <form action="https://formspree.io/f/noorahelbarky" method="POST" class="contact-form">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required placeholder="Name">
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required placeholder="name@example.com">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+}
 
-<footer>
-  <div class="wrap">© 2026 Noorah Elbarky</div>
-</footer>
-</body>
-</html>
+nav a:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* Hero */
+.hero {
+  padding: clamp(48px, 9vw, 110px) 0 clamp(56px, 9vw, 110px);
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 9vw, 6.6rem);
+  line-height: .98;
+  letter-spacing: -.025em;
+  margin: 0 0 28px;
+  color: var(--accent);
+}
+
+.lede {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+  max-width: 30em;
+  margin: 0 0 36px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .98rem;
+  border: 1.5px solid var(--btn-bg);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.btn:hover {
+  opacity: .88;
+}
+
+.portrait {
+  aspect-ratio: 4/5;
+  width: 100%;
+  max-width: 380px;
+  justify-self: end;
+  border-radius: 999px 999px 28px 28px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: radial-gradient(120% 90% at 30% 15%, #7A3C8F 0%, var(--velvet) 45%, var(--velvet-deep) 100%);
+  color: #F7F1E5;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Sections */
+section.block {
+  padding: clamp(44px, 7vw, 84px) 0;
+  border-top: 1px solid var(--line);
+}
+
+section.block .wrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(20px, 5vw, 64px);
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.7rem;
+  margin: 0;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.about p {
+  margin: 0 0 1.1em;
+  max-width: 36em;
+  font-size: 1.15rem;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  padding: 0 0 36px;
+  margin: 0 0 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.when {
+  color: var(--muted);
+  font-size: .93rem;
+  line-height: 1.5;
+}
+
+.entry h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.org {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.entry ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.entry li {
+  margin-bottom: .5em;
+  max-width: 38em;
+}
+
+.entry li::marker {
+  color: var(--accent);
+}
+
+/* Tab Navigation System */
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 10px 20px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.tab-btn.active {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border-color: var(--btn-bg);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Featured Large Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.featured-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.featured-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card-img-large {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: #5A2A6E;
+  color: #F7F1E5;
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+.featured-card h3 {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.featured-card h3 a {
+  text-decoration: none;
+}
+
+.featured-card h3 a:hover {
+  color: var(--accent);
+}
+
+.featured-card p {
+  margin: 0;
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.res {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .92rem;
+}
+
+.featured-card .go {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.featured-card .links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.featured-card .links a {
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Stats Header inside Tab */
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px 18px;
+  flex-wrap: wrap;
+  margin: 0 0 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.stat strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: var(--accent);
+}
+
+.stat span {
+  color: var(--muted);
+  max-width: 20em;
+  line-height: 1.45;
+}
+
+.intro {
+  max-width: 36em;
+  margin: 0 0 24px;
+}
+
+/* Education & Skills */
+.edu h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin: 0 0 2px;
+}
+
+.edu p {
+  margin: 0 0 6px;
+  max-width: 36em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.skills dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 14px 20px;
+}
+
+.skills dt {
+  color: var(--muted);
+  font-size: .93rem;
+  padding-top: 3px;
+}
+
+.skills dd {
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 5px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: .95rem;
+}
+
+/* Contact Section & Form */
+.contact p {
+  margin: 0 0 18px;
+  font-size: 1.15rem;
+  max-width: 30em;
+}
+
+.contact ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.contact a {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--accent);
+}
+
+.contact a:hover {
+  color: var(--accent);
+}
+
+.contact span {
+  display: inline-block;
+  min-width: 92px;
+  color: var(--muted);
+  font-size: .95rem;
+  font-family: var(--sans);
+}
+
+.contact-form {
+  margin-top: 32px;
+  display: grid;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--line);
+}
+
+.contact-form button {
+  cursor: pointer;
+  border: none;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+/* Footer */
+footer {
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 760px) {
+  .hero .wrap {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    order: -1;
+    justify-self: start;
+    max-width: 260px;
+  }
+  section.block .wrap {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .entry, .skills dl {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .skills dl {
+    gap: 6px 0;
+  }
+  .skills dd {
+    margin-bottom: 14px;
+  }
+  nav {
+    font-size: .88rem;
+    gap: 12px;
+  }
+  .contact span {
+    display: block;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
