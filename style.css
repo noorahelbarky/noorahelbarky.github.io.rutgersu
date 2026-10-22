@@ -52,5 +52,30 @@
   border-radius: 6px;
   border: 1px solid var(--line);
 }
+/* Flexible image container that handles any number of images gracefully */
+.card-gallery {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) transparent;
+}
+
+.card-gallery img {
+  scroll-snap-align: start;
+  flex: 0 0 75%; /* Shows a preview of the next image to hint scrolling */
+  height: 170px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  transition: transform 0.2s ease;
+}
+
+.card-gallery img:hover {
+  transform: scale(1.02);
+}
 
 /* Rest of your CSS layout rules below... */
